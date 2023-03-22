@@ -1,0 +1,42 @@
+.carousel{
+    background-color: #303030 !important;
+    border-radius: 1em;
+    height: 20em;
+    padding: 1em;
+    margin: 0em 10.5em;
+    overflow: hidden;
+
+    display: flex !important;
+    flex-direction: row ;
+    gap: 1.5em;
+}
+
+.card{
+    background-color: #bebdbd !important;
+    border-radius: 1em;
+    padding: 1em;
+    display: flex !important;
+    flex-direction: column  ;
+}
+
+.carousel-control{
+    width: 3.5em;
+    height: 3.5em;
+    
+}
+
+.prev{
+    width: 2em;
+    position:absolute;
+    top: 8.42em;
+    left: 103em;
+}
+
+.next{
+    rotate: 180deg;
+    width: 2em;
+    position: relative;
+    top: 0.8em;
+    left: 106em;
+}
+

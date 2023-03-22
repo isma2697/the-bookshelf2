@@ -13,9 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
+    return view('principal');
+});
+Route::get('/welcome', function () {
     return view('welcome');
 });
+
+Route::get('/category', function () {
+    return view('subpage.category-page');
+});
+
+
+Route::get('/apibooks', 'App\Http\Controllers\ApiBookController@index');
+
 
 Route::middleware([
     'auth:sanctum',

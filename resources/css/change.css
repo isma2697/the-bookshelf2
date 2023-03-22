@@ -1,0 +1,12 @@
+body{
+    background-color: #303030 !important;
+}
+
+
+h1{
+    color: red !important;
+}
+
+x-mycomp.first{
+    color: red !important;
+}
