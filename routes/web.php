@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApiBookController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,7 +27,7 @@ Route::get('/category', function () {
 });
 
 
-Route::get('/apibooks', 'App\Http\Controllers\ApiBookController@index');
+Route::get('/apibooks', [ApiBookController::class, 'index'])->name('apibooks.index');
 
 
 Route::middleware([
