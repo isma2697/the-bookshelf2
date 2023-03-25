@@ -28,6 +28,7 @@ Route::get('/category', function () {
 
 
 Route::get('/apibooks', [ApiBookController::class, 'index'])->name('apibooks.index');
+Route::get('/category/{category}', [ApiBookController::class, 'category'])->name('apibooks.category');
 
 
 Route::middleware([

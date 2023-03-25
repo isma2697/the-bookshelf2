@@ -2,6 +2,7 @@
 <img src="{{asset('storage/svg/left-arrow.svg')}}" alt="left-arrow" class="carousel-control prev">
 {{-- <button class="carousel-control next"></button> --}}
 <img src="{{asset('storage/svg/left-arrow.svg')}}" alt="right-arrow" class="carousel-control next">
+
 <div class="carousel">
     {{-- @foreach($books as $book)
         <div class="card">

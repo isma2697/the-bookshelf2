@@ -1,4 +1,6 @@
-
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 
 @import url('navbar-full.css');
@@ -23,12 +25,13 @@ body::-webkit-scrollbar{
 }
 
 body::-webkit-scrollbar-thumb{
-    background-color: #4f4fff;
+    background-color: #303030;
     border-radius: 1rem;
 }
 
-
-
-
-
+.culo{
+    position: absolute;
+    top: 4em;
+    right: 2.5em;
+}
 
