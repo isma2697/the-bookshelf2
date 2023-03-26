@@ -12,10 +12,12 @@
 <body>
     <x-mycomp.navbar-full/>
     <x-mycomp.floating-box/>
+    {{-- <x-block.section-category/>
     <x-block.section-category/>
     <x-block.section-category/>
-    <x-block.section-category/>
-    <x-block.section-category/>
+    <x-block.section-category/> --}}
+    <x-mycomp.image :books="$books"/>
+
     <x-mycomp.footer/>
 
 

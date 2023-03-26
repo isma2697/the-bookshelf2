@@ -1,0 +1,26 @@
+.table-crud{
+    /* border: 1px solid #303030; */
+    width: 90%;
+    margin: 2em auto;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    box-shadow:-1px 1px 0.3em 1px #30303077;
+}
+
+#table{
+    /* border: 1px solid #3030305b;  */
+   
+    margin-bottom: 1em;  
+    box-shadow:-1px 1px 0.3em 1px #30303077;
+}
+
+#table_filter{
+    margin-bottom: 1em;
+}
+
+
+
+
+
+
+

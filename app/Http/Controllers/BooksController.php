@@ -13,7 +13,20 @@ class BooksController extends Controller
      */
     public function index()
     {
-        //
+        //mostrar vista de librosde la base de datos
+        $books = Books::all();
+        foreach ($books as $book) {
+            $book->authors = json_decode($book->authors, true);
+            if (is_array($book->authors)) {
+                $book->authors = implode(", ", $book->authors);
+            }
+            $book->categories = json_decode($book->categories, true);
+            if (is_array($book->categories)) {
+                $book->categories = implode(", ", $book->categories);
+            }
+        }
+        // dd($books);
+        return view('layouts.admin-books', compact('books'));
     }
 
     /**

@@ -8,6 +8,7 @@
 @import url('floating-box.css');
 @import url('main-books.css');
 @import url('section-category.css');
+@import url('table-crud.css');
 @import url('footer.css');
 
 
@@ -29,9 +30,12 @@ body::-webkit-scrollbar-thumb{
     border-radius: 1rem;
 }
 
-.culo{
-    position: absolute;
-    top: 4em;
-    right: 2.5em;
-}
+.imagebooks{
+    width: 100%;
 
+
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 1rem;
+    
+}

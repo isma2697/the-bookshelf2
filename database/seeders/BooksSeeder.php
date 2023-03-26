@@ -13,6 +13,8 @@ class BooksSeeder extends Seeder
 
     public function dataCreate($booksData){
         foreach ($booksData as $bookData) {
+            //si el libro existe que no lo cree
+            
             Books::create([
                 'title' => $bookData['title'],
                 'subtitle' => $bookData['subtitle'],

@@ -2,6 +2,10 @@
 
 use App\Http\Controllers\ApiBookController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BooksController;
+use App\Http\Controllers\UsersController;
+
+  
 
 /*
 |--------------------------------------------------------------------------
@@ -14,22 +18,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-Route::get('/', function () {
-    return view('principal');
-});
 Route::get('/welcome', function () {
     return view('welcome');
 });
-
-Route::get('/category', function () {
-    return view('subpage.category-page');
-});
-
-
-Route::get('/apibooks', [ApiBookController::class, 'index'])->name('apibooks.index');
-Route::get('/category/{category}', [ApiBookController::class, 'category'])->name('apibooks.category');
-
 
 Route::middleware([
     'auth:sanctum',
@@ -40,3 +31,23 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::get('/', function () {
+    return view('layouts.principal');
+});
+
+Route::get('/category', function () {
+    return view('layouts.category-page');
+});
+
+
+Route::get('/admin/books', [BooksController::class, 'index'])->name('admin.books.index');
+Route::get('/admin/users', [UsersController::class, 'index'])->name('admin.users.index');
+
+
+
+
+Route::get('/apibooks', [ApiBookController::class, 'index'])->name('apibooks.index');
+Route::get('/category/{category}', [ApiBookController::class, 'category'])->name('apibooks.category');
+Route::get('/books', [BooksController::class, 'index'])->name('books.index');
+
