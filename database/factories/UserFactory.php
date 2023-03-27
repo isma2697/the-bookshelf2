@@ -43,7 +43,7 @@ class UserFactory extends Factory
             'email' => $this->faker->unique()->safeEmail(),
             'dni' => $this->faker->unique()->numerify('########A'),
             'phone' => $this->faker->phoneNumber(),
-            'rol' => 'user',
+            'is_admin' => false,
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'two_factor_secret' => null,

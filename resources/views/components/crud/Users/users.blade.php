@@ -6,7 +6,7 @@
                 <th>Surname</th></th>
                 <th>DNI</th>
                 <th>Phone</th>
-                <th>Rol</th>
+                <th>admin</th>
                 <th>Email</th>
                 <th>Borrar</th>
                 <th>Editar</th>
@@ -19,7 +19,7 @@
                     <td>{{ $user->surname ?? 'Sin subnombre' }}</td>
                     <td>{{ $user->dni ?? 'Sin dni' }}</td>
                     <td>{{ $user->phone ?? 'Sin telefono' }}</td>
-                    <td>{{ $user->rol ?? 'Sin rol' }}</td>
+                    <td>{{ $user->is_admin ?? 'Sin permiso' }}</td>
                     <td>{{ $user->email ?? 'Sin email' }}</td>
                     <td><button class="btn btn-danger btn_borrar">Borrar</button></td>
                     <td><button class="btn btn-warning btn_editar">Editar</button></td>

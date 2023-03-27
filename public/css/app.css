@@ -21,14 +21,20 @@
 
 
 body::-webkit-scrollbar{
-    width: 0.5rem;
- 
+    width: 0.5rem; 
+    height: 0.5rem;
+    background-color: snow;
+
 }
+
+
 
 body::-webkit-scrollbar-thumb{
     background-color: #303030;
     border-radius: 1rem;
 }
+
+
 
 .imagebooks{
     width: 100%;

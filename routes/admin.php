@@ -18,5 +18,9 @@ use App\Http\Controllers\UsersController;
 |
 */
 
-Route::get('books', [BooksController::class, 'index'])->name('admin.books.index');
+Route::middleware(['auth', 'admin'])->group(function () {
+    // Rutas para administradores aquí
+    Route::get('books', [BooksController::class, 'index'])->name('admin.books.index');
+});
+
 Route::get('users', [UsersController::class, 'index'])->name('admin.users.index');
