@@ -12,13 +12,13 @@
 </head>
 <body>
 
-    {{-- <x-mycomponents.first />  --}}
+    {{-- <x-mycomp.first />  --}}
     
-    <x-mycomponents.navbar-full/>
-    <x-mycomponents.books-carousel />
-    <x-mycomponents.floating-box/>
-    <x-mycomponents.main-books/>
-    <x-mycomponents.footer/>
+    <x-mycomp.navbar-full/>
+    <x-mycomp.books-carousel />
+    <x-mycomp.floating-box/>
+    <x-mycomp.main-books/>
+    <x-mycomp.footer/>
 
 
     

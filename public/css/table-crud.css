@@ -9,7 +9,7 @@
 
 #table{
     /* border: 1px solid #3030305b;  */
-   
+    max-width: 105em !important;
     margin-bottom: 1em;  
     box-shadow:-1px 1px 0.3em 1px #30303077;
 }
