@@ -7,6 +7,8 @@ use App\Http\Requests\UpdateBooksRequest;
 use App\Models\Books;
 
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class BooksController extends Controller
 {
@@ -82,5 +84,11 @@ class BooksController extends Controller
         //
         $libros = Books::find($id);
         $libros->delete();
+    }
+
+    public function listadoPdf(){
+        $books = Books::paginate(10);
+        $pdf =Pdf::loadView("components.crud.Books.listado-books", compact('books'));
+        return $pdf->stream('listado.pdf');
     }
 }

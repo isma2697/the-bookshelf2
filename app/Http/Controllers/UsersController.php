@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreUsersRequest;
 use App\Http\Requests\UpdateUsersRequest;
 use App\Models\Users;
+use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class UsersController extends Controller
 {
@@ -65,5 +67,11 @@ class UsersController extends Controller
     {
         $usuario = Users::find($id);
         $usuario->delete();
+    }
+
+    public function listadoPdf(){
+        $users = Users::all();
+        $pdf =Pdf::loadView("components.crud.Users.listado-users", compact('users'));
+        return $pdf->stream('listado.pdf');
     }
 }

@@ -1,8 +1,6 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
-
-
 @import url('navbar-full.css');
 @import url('books-carousel.css');
 @import url('floating-box.css');
@@ -11,7 +9,6 @@
 @import url('table-crud.css');
 @import url('footer.css');
 
-
 *{
     margin: 0;
     padding: 0;
@@ -19,27 +16,20 @@
     font-family: 'Poppins', sans-serif;
 }
 
-
 body::-webkit-scrollbar{
     width: 0.5rem; 
     height: 0.5rem;
     background-color: snow;
-
 }
-
-
 
 body::-webkit-scrollbar-thumb{
     background-color: #303030;
     border-radius: 1rem;
 }
 
-
-
 .imagebooks{
     width: 100%;
-
-
+    
     display:grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-gap: 1rem;
