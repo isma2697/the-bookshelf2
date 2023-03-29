@@ -1,15 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+
+
 .table-crud{
     /* border: 1px solid #303030; */
     width: 90%;
-    margin: 2em auto;
+    margin: auto;
     padding: 0.5em;
     border-radius: 0.5em;
     box-shadow:-1px 1px 0.3em 1px #30303077;
 }
 
 #table{
-    /* border: 1px solid #3030305b;  */
-    max-width: 105em !important;
+    border: 1px solid #ff00005b; 
+    max-width: 99% ;
     margin-bottom: 1em;  
     box-shadow:-1px 1px 0.3em 1px #30303077;
 }
@@ -19,7 +23,31 @@
 }
 
 
+.btn-table-crud{
+    width: 90%;
+    margin: 2em auto 1em auto;
+    border-radius: 0.5em;
+    
+    
+    display: flex;
+    justify-content:flex-end;
+    gap: 1em;
+}
 
+.create-btn{
+    position: relative;
+    top: 0px;
+}
+ .title-crud{
+    margin-top: 1em;
+    font-family: 'Nunito', sans-serif;
+    font-size: 2em;
+    font-weight: 600;
+    color: #303030;
+    text-align: center;
+    margin-bottom: 1em;
+    text-shadow: -2px 1.5px 3px #fbffd4;
+ }
 
 
 

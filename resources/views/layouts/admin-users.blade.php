@@ -9,8 +9,8 @@
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
-    
-    <title>all users</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+     <title>all users</title>
 </head>
 <body>
     <x-mycomp.navbar-full/>
@@ -30,28 +30,41 @@
             $('#table').DataTable({
                 "responsive": true,
                 "language": {
-                    "lengthMenu": "Mostrar _MENU_ registros por página",
-                    "zeroRecords": "No se encontraron resultados en su búsqueda",
-                    "searchPlaceholder": "Buscar registros",
-                    "info": "Mostrando registros de _START_ al _END_ de un total de _TOTAL_ registros",
-                    "infoEmpty": "No existen registros",
-                    "infoFiltered": "(filtrado de un total de _MAX_ registros)",
-                    "search": "Buscar:",
-                    "paginate": {
-                        "first": "Primero",
-                        "last": "Último",
-                        "next": "Siguiente",
-                        "previous": "Anterior"
-                    },
+                    url: "http://cifpzonzamas.org/gestion/resources/Spanish.json",
                 },
-                "lengthMenu": [[5, 10,20, 50, -1], [5, 10,20, 50, "All"]]   
-
-                
-
-
-                
-
             });
+            $("#table").on("click",".btn_borrar",function(e){
+            e.preventDefault();
+           
+            //confirmar con sweetalert
+            Swal.fire({
+                title: '¿Estas seguro?',
+                text: "No podras revertir esta accion",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si, borrar!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    //redireccionar a la url
+                    //borrar con ajax
+                    const tr=$(this).closest("tr"); //tr más cercano al botón, o sea el tr que contiene al botón
+                    const id=tr.data("id"); //obtener el id del tr
+                    $.ajax({
+                        url: "{{url('/admin/users')}}/"+id,
+                        method: "DELETE",
+                        data: {
+                            "_token": "{{ csrf_token() }}"
+                        },
+                        success: function(){
+                            tr.fadeOut();
+                        }
+                    })
+                }
+            })
+
+        });
         });
     </script>
 </body>

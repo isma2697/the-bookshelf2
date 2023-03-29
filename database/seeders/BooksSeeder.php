@@ -13,19 +13,24 @@ class BooksSeeder extends Seeder
 
     public function dataCreate($booksData){
         foreach ($booksData as $bookData) {
-            //si el libro existe que no lo cree
+            // busca un registro existente por título
+            $existingBook = Books::where('title', $bookData['title'])->first();
             
-            Books::create([
-                'title' => $bookData['title'],
-                'subtitle' => $bookData['subtitle'],
-                'published_date' => $bookData['publishedDate'],
-                'page_count' => $bookData['pageCount'],
-                'description' => $bookData['description'],
-                'authors' => json_encode($bookData['authors']),
-                'categories' => json_encode($bookData['categories']),
-                'thumbnail' => $bookData['imageLinks'],
-                'identifier' => $bookData['identifier']
-            ]);
+            if (!$existingBook) {
+                // crea un nuevo registro
+            
+                Books::create([
+                    'title' => $bookData['title'],
+                    'subtitle' => $bookData['subtitle'],
+                    'published_date' => $bookData['publishedDate'],
+                    'page_count' => $bookData['pageCount'],
+                    'description' => $bookData['description'],
+                    'authors' => json_encode($bookData['authors']),
+                    'categories' => json_encode($bookData['categories']),
+                    'thumbnail' => $bookData['imageLinks'],
+                    'identifier' => $bookData['identifier']
+                ]);
+            }
         }
     }
 

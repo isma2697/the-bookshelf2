@@ -6,6 +6,8 @@ use App\Http\Requests\StoreBooksRequest;
 use App\Http\Requests\UpdateBooksRequest;
 use App\Models\Books;
 
+use Illuminate\Support\Facades\Cache;
+
 class BooksController extends Controller
 {
     /**
@@ -14,7 +16,10 @@ class BooksController extends Controller
     public function index()
     {
         //mostrar vista de librosde la base de datos
-        $books = Books::all();
+        $books = Cache::remember('all_books', 60, function () {
+            return Books::all();
+        });
+    
         foreach ($books as $book) {
             $book->authors = json_decode($book->authors, true);
             if (is_array($book->authors)) {
@@ -72,8 +77,10 @@ class BooksController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Books $books)
+    public function destroy($id)
     {
         //
+        $libros = Books::find($id);
+        $libros->delete();
     }
 }
