@@ -2,6 +2,7 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 @import url('navbar-full.css');
+@import url('book-info.css');
 @import url('books-carousel.css');
 @import url('floating-box.css');
 @import url('main-books.css');
@@ -20,7 +21,7 @@
     font-family: 'Poppins', sans-serif;
 }
 body{
-    background-color: rgb(161, 252, 252);
+    /* background-color: rgb(161, 252, 252); */
     overflow-x: hidden;
 }
 
