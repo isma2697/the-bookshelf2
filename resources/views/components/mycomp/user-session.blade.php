@@ -4,7 +4,7 @@
             @auth
                 {{-- <a href="{{ url('/dashboard') }}" class="login-user">Dashboard</a> --}}
                 
-                <!-- <img src="{{ asset('storage/svg/user.svg') }}" alt="icon-user" id="icon-user"> -->
+                <img src="{{ asset('storage/svg/user.svg') }}" alt="icon-user" id="icon-user"> 
             @else
                 {{-- <a href="{{ route('login') }}" class="login-user">Log in</a> --}}
                 <div class="inline-flex items-center gap-2 list-none lg:ml-auto">

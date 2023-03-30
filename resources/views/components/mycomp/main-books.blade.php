@@ -3,7 +3,7 @@
         <h1>Libros X</h1>
     </div>
     <div class="books-container">
-        @foreach ($books as $book)
+        @foreach ($books->take(30) as $book)
             <div class="books">
                 <div class="book-img">
                     <a href="{{ route('book.show', $book->id) }}">
