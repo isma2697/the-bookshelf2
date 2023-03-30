@@ -1,29 +1,55 @@
 .carousel{
-    background-color: #303030 !important;
+    /* background-color: #303030 !important; */
     border-radius: 1em;
-    height: 20em;
+    height: 22.5em;
     padding: 1em;
-    margin: 0em 10.5em;
+    margin: 0em 12em;
     overflow: hidden;
 
-    display: flex !important;
+    display: flex;
     flex-direction: row ;
-    gap: 1.5em;
+    gap: 1em;
+
 }
 
-.card{
-    background-color: #bebdbd !important;
-    border-radius: 1em;
-    padding: 1em;
-    display: flex !important;
-    flex-direction: column  ;
+.cards{
+    min-width:13.5em;
+    background-color: #ffffff !important;
+    border-radius: 0.31em;
+    padding: 5px;
+    box-shadow: -1px 1px 5px 0 #bdbdbd;
 }
 
-.carousel-control{
-    width: 3.5em;
-    height: 3.5em;
-    
+.cards:hover{
+    box-shadow: -1px 1px 5px 0 #5a5a5a;
 }
+
+.card-body{
+    max-width:12.5em;
+    margin: 0.2em auto auto auto;
+    border:1px solid #ffffff;
+}
+
+.card-body>h5{
+    max-height: 1.5em;
+    font-size: 0.9em;
+    color: #000000;
+    font-weight: 600;
+    font-family: 'Nunito', sans-serif;
+}
+
+.card-img{
+    border: 1px solid #cccccc;
+    width: 12.5em;
+    height: 18em;
+    border-radius: 0.11em;
+    margin: 0em auto auto auto;
+}
+
+
+
+
+
 
 .prev{
     width: 2em;

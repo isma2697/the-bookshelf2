@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,16 +11,9 @@
 </head>
 <body>
     <x-mycomp.navbar-full/>
-    <x-mycomp.books-carousel  :books="$books"/>
-    <x-mycomp.floating-box/>
-    <x-mycomp.main-books :books="$books"/>
+    <x-mycomp.book-info :book="$book"/>
     <x-mycomp.footer/>
 
-
-
-
-
     <script src="{{ asset('js/app.js') }}"></script>
-   
 </body>
 </html>

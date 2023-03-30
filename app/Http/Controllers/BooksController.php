@@ -12,6 +12,23 @@ use Barryvdh\DomPDF\Facade\Pdf;
 
 class BooksController extends Controller
 {
+
+
+    private function formatData($books) {
+        foreach ($books as $book) {
+            
+            $book->authors = json_decode($book->authors, true);
+            if (is_array($book->authors)) {
+                $book->authors = implode(", ", $book->authors);
+            }
+            $book->categories = json_decode($book->categories, true);
+            if (is_array($book->categories)) {
+                $book->categories = implode(", ", $book->categories);
+            }
+            
+        }
+        return $books;
+    }
     /**
      * Display a listing of the resource.
      */
@@ -22,18 +39,15 @@ class BooksController extends Controller
             return Books::all();
         });
     
-        foreach ($books as $book) {
-            $book->authors = json_decode($book->authors, true);
-            if (is_array($book->authors)) {
-                $book->authors = implode(", ", $book->authors);
-            }
-            $book->categories = json_decode($book->categories, true);
-            if (is_array($book->categories)) {
-                $book->categories = implode(", ", $book->categories);
-            }
-        }
+        $books = $this->formatData($books);
         // dd($books);
         return view('layouts.admin-books', compact('books'));
+    }
+
+    public function principal(){
+        $books = Books::paginate(40);
+        $books = $this->formatData($books);
+        return view('layouts.principal', compact('books'));
     }
 
     /**
@@ -55,9 +69,24 @@ class BooksController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Books $books)
+    public function show($id)
     {
-        //
+        $book = Books::find($id);
+
+        if ($book) {
+            $book->authors = json_decode($book->authors, true);
+            if (is_array($book->authors)) {
+                $book->authors = implode(", ", $book->authors);
+            }
+            $book->categories = json_decode($book->categories, true);
+            if (is_array($book->categories)) {
+                $book->categories = implode(", ", $book->categories);
+            }
+            return view('layouts.only-book', ['book' => $book]);
+        } else {
+            abort(404);
+        }
+
     }
 
     /**

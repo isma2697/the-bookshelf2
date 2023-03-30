@@ -9,11 +9,19 @@
 @import url('table-crud.css');
 @import url('footer.css');
 
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+}
+body{
+    background-color: rgb(161, 252, 252);
+    overflow-x: hidden;
 }
 
 body::-webkit-scrollbar{

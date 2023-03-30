@@ -19,9 +19,7 @@ use App\Http\Controllers\UsersController;
 |
 */
 
-Route::get('/', function () {
-    return view('layouts.principal');
-});
+Route::get('/', [BooksController::class, 'principal'])->name('books.principal');
 
 Route::get('/category', function () {
     return view('layouts.category-page');
@@ -31,4 +29,5 @@ Route::get('/category', function () {
 Route::get('/apibooks', [ApiBookController::class, 'index'])->name('apibooks.index');
 Route::get('/category/{category}', [ApiBookController::class, 'category'])->name('apibooks.category');
 Route::get('/books', [BooksController::class, 'index'])->name('books.index');
+Route::get('/book/{id}', [BooksController::class, 'show'])->name('book.show');
 

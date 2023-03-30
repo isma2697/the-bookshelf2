@@ -17,6 +17,7 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
-        "datatables.net-dt": "^1.13.4"
+        "datatables.net-dt": "^1.13.4",
+        "owl.carousel": "^2.3.4"
     }
 }
