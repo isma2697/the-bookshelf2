@@ -10,6 +10,7 @@ use Barryvdh\DomPDF\Facade\Pdf;
 
 class UsersController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      */
@@ -26,6 +27,7 @@ class UsersController extends Controller
     public function create()
     {
         //
+        return view('components.crud.Users.create-user');
     }
 
     /**
@@ -34,6 +36,15 @@ class UsersController extends Controller
     public function store(StoreUsersRequest $request)
     {
         //
+        $usuario = new Users();
+        $usuario->name = $request->name;
+        $usuario->surname = $request->surname;
+        $usuario->phone = $request->phone;
+        $usuario->dni = $request->dni;
+        $usuario->email = $request->email;
+        $usuario->password = $request->password;
+        $usuario->save();
+        return redirect()->route('admin.users.index');
     }
 
     /**

@@ -14,7 +14,7 @@
 
 .book-info-container>.book-img{
     /* border: 1px solid #cccccc; */
-    width: 100em;
+    min-width: 15em;
 }
 
 .book-info-container>.book-img>img{
@@ -22,6 +22,12 @@
     max-height: 40em;
     margin: auto;
     box-shadow: -1px 1px 5px 0 #bdbdbd;
+}
+
+
+.book-info-container>.book-info{
+    /* border: 1px solid #994040; */
+    min-width: 68em;
 }
 
 .book-info-container>.book-info>.info_db{
