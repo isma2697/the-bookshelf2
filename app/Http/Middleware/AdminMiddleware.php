@@ -19,7 +19,15 @@ class AdminMiddleware
             return $next($request);
         }
     
-        return redirect('/home');
+        return redirect('/')->with('error', 'No tienes permisos para acceder a esta página');
     }
     
+    // public function handle(Request $request, Closure $next)
+    // {
+    //     if (!$request->user() || !$request->user()->is_admin) {
+    //         return redirect('/')->with('error', 'No tienes permisos para acceder a esta página');
+    //     }
+
+    //     return $next($request);
+    // }
 }

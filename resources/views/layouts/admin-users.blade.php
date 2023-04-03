@@ -16,10 +16,7 @@
     <x-mycomp.navbar-full/>
     <x-mycomp.floating-box/>
     <x-crud.Users.users :users="$users"/>
-    
-    <x-mycomp.footer/>
-    
-    
+
     
     
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>

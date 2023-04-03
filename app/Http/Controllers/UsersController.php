@@ -10,7 +10,20 @@ use Barryvdh\DomPDF\Facade\Pdf;
 
 class UsersController extends Controller
 {
-    
+    public function __construct()
+    {
+        $this->middleware('auth');
+        // $this->middleware(function ($request, $next) {
+        //     $user = auth()->user();
+        //     if ($user && $user->is_admin != true) {
+        //         $user->is_admin = true;
+        //         $user->save();
+        //     }
+        //     return $next($request);
+        // });
+        
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -33,17 +46,13 @@ class UsersController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreUsersRequest $request)
+    public function store(Request $request)
     {
         //
-        $usuario = new Users();
-        $usuario->name = $request->name;
-        $usuario->surname = $request->surname;
-        $usuario->phone = $request->phone;
-        $usuario->dni = $request->dni;
-        $usuario->email = $request->email;
-        $usuario->password = $request->password;
-        $usuario->save();
+        $datos = $request->all();
+        //quitar el token para que no de error
+        unset($datos['_token']);
+        Users::create($datos);
         return redirect()->route('admin.users.index');
     }
 
@@ -58,17 +67,24 @@ class UsersController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Users $users)
+    public function edit($id)
     {
         //
+        $user = Users::find($id);
+        return view('components.crud.Users.edit-user', compact('user'));
+
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateUsersRequest $request, Users $users)
+    public function update(Request $request, $id)
     {
         //
+        $user = Users::find($id);
+        unset($request['_token']);
+        $user->update($request->all());
+        return redirect()->route('admin.users.index');
     }
 
     /**

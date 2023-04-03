@@ -1,0 +1,22 @@
+.listado_pdf>tr>td {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    
+}
+
+.listado_pdf {
+    border: 1px solid #000;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+

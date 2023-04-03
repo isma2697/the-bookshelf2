@@ -11,7 +11,12 @@ use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 
 class BooksController extends Controller
-{
+{   
+    public function __construct()
+    {
+        $this->middleware('auth');
+      
+    }
 
 
     private function formatData($books) {
@@ -35,9 +40,7 @@ class BooksController extends Controller
     public function index()
     {
         //mostrar vista de librosde la base de datos
-        $books = Cache::remember('all_books', 60, function () {
-            return Books::all();
-        });
+        $books = Books::all();
     
         $books = $this->formatData($books);
         // dd($books);
@@ -56,14 +59,20 @@ class BooksController extends Controller
     public function create()
     {
         //
+        return view('components.crud.Books.create-book');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreBooksRequest $request)
+    public function store(Request $request)
     {
         //
+        $datos = $request->all();
+        //quitar el token para que no de error
+        unset($datos['_token']);
+        Books::create($datos);
+        return redirect()->route('admin.books.index');
     }
 
     /**
@@ -92,17 +101,24 @@ class BooksController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Books $books)
+    public function edit($id)
     {
         //
+        $book = Books::find($id);
+        return view('components.crud.Books.edit-book', compact('book'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateBooksRequest $request, Books $books)
+    public function update(Request $request, $id)
     {
         //
+        $book = Books::find($id);
+        unset($request['_token']);
+        $book->update($request->all());
+        return redirect()->route('admin.books.index');
+
     }
 
     /**
@@ -121,3 +137,12 @@ class BooksController extends Controller
         return $pdf->stream('listado.pdf');
     }
 }
+
+
+
+
+
+
+
+
+
