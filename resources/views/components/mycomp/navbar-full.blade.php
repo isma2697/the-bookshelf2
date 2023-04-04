@@ -14,17 +14,7 @@
                 <li>
                     <a href="/">Categoria</a>
                     <img src="{{ asset('storage/svg/arrow-down.svg') }}" alt="arrow-down" id="arrow-down1">
-                    <div class="menu1">
-                        <ul class="dropdown-submenu">
-                            <li><a href="/">Inicio</a></li>
-                            <li><a href="/acerca-de">Acerca de</a></li>
-                            <li><a href="/contacto">Contacto</a></li>
-                            <li><a href="/">Inicio</a></li>
-                            <li><a href="/acerca-de">Acerca de</a></li>
-                            <li><a href="/contacto">Contacto</a></li>
-                            <li><a href="/contacto">Contacto</a></li>
-                        </ul>
-                    </div>
+                    <x-mycomp.menu-category/>
                 </li>
 
                 <li>

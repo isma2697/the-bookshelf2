@@ -98,36 +98,6 @@
 
 /* --------- */
 
-.dropdown-submenu{
-    border-radius: 0.5em;
-    margin-top: 0.8em;
-    background-color: #ffffff;
-    padding: 0.6em;
-    list-style: none;
-    
-    display: flex;
-    flex-direction: column;
-    gap: 0.5em;
-
-    position: absolute;
-}
-
-.dropdown-submenu>li>a{
-    color: #ffffff;
-    font-size: 1em;
-    margin-top: 0.5em;
-    text-decoration: none;
-}
-
-.dropdown-submenu>li{
-    border-radius: 0.2em;
-    padding: 0.5em;
-    background-color: #c4c4c4;
-    color: #ffffff;
-    width: 10em;
-    font-size: 1em;
-    text-decoration: none;   
-}
 
 #arrow-down1{
     height: 2em;
@@ -143,8 +113,12 @@
     left: 15.5em;
 }
 
-.menu1, .menu2 {
+.menu1 {
 
+    display: block;
+}
+
+.menu2{
     display: none;
 }
 

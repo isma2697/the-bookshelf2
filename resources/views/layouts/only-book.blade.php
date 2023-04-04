@@ -11,9 +11,11 @@
 </head>
 <body>
     <x-mycomp.navbar-full/>
+    <x-mycomp.floating-box/>
     <x-mycomp.book-info :book="$book"/>
+    <x-mycomp.section-books :books="$books"/>  
     <x-mycomp.footer/>
 
-    <script src="{{ asset('js/app.js') }}"></script>
+    
 </body>
 </html>

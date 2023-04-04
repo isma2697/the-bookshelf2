@@ -80,6 +80,9 @@ class BooksController extends Controller
      */
     public function show($id)
     {
+        $books = Books::paginate(10);
+        $books = $this->formatData($books);
+
         $book = Books::find($id);
 
         if ($book) {
@@ -91,7 +94,7 @@ class BooksController extends Controller
             if (is_array($book->categories)) {
                 $book->categories = implode(", ", $book->categories);
             }
-            return view('layouts.only-book', ['book' => $book]);
+            return view('layouts.only-book', compact('book', 'books'));
         } else {
             abort(404);
         }
