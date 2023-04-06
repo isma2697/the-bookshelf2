@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Books extends Model
 {
     use HasFactory;
+
+    protected $table = 'books';
+
     protected $fillable = [
         'title',
         'subtitle',
@@ -24,4 +27,20 @@ class Books extends Model
         'authors' => 'json',
         'categories' => 'json'
     ];
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
+
+    public function comentarios()
+    {
+        return $this->hasMany(Comentario::class);
+    }
+
+    public function reservas()
+    {
+        return $this->hasMany(Reserva::class);
+    }
+
 }

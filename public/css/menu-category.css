@@ -7,11 +7,9 @@
     border-radius: 0.5em;
     width: 50em;
     padding: 0.5em;
-
 }
 
 .dropdown-submenu{
-
     display: flex;
     flex-direction: row;
 }

@@ -47,4 +47,20 @@ class Users extends Model
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
+
+    public function comentarios()
+    {
+        return $this->hasMany(Comentario::class);
+    }
+
+    public function reservas()
+    {
+        return $this->hasMany(Reserva::class);
+    }
+
 }

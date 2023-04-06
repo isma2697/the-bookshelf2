@@ -113,14 +113,14 @@
     left: 15.5em;
 }
 
-.menu1 {
+.menu1 ,.menu2 {
 
-    display: block;
-}
-
-.menu2{
     display: none;
 }
+/* 
+.menu2{
+    display: none;
+} */
 
 .show {
   display: block;

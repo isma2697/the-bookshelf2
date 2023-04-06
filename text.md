@@ -19,5 +19,11 @@
     fallos de auth en book 
     y
     en users la opcion admin no funciona
+
+
+
+    borrar libros sin title y thumbnail
+    php artisan books:delete
+
     
     
