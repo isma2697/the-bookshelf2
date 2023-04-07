@@ -1,4 +1,4 @@
-@auth
+
     <div class="floating-box">
         <!-- component -->
         <div class=" flex justify-center">
@@ -51,4 +51,3 @@
             </div>
         </div>
     </div>
-@endauth

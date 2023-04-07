@@ -5,20 +5,13 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreBooksRequest;
 use App\Http\Requests\UpdateBooksRequest;
 use App\Models\Books;
-
+use App\Models\Comentario;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 
 class BooksController extends Controller
 {   
-    public function __construct()
-    {
-        $this->middleware('auth');
-      
-    }
-
-
     private function formatData($books) {
         foreach ($books as $book) {
             
@@ -84,7 +77,13 @@ class BooksController extends Controller
         $books = $this->formatData($books);
 
         $book = Books::find($id);
+        $comments = $book->comentarios ?? null;
+        $comments = Comentario::where('books_id', $id)->with('user')->get();
 
+        foreach ($comments as $comment) {
+            $comment->users_id = $comment->user->name;
+        }
+        
         if ($book) {
             $book->authors = json_decode($book->authors, true);
             if (is_array($book->authors)) {
@@ -94,7 +93,7 @@ class BooksController extends Controller
             if (is_array($book->categories)) {
                 $book->categories = implode(", ", $book->categories);
             }
-            return view('layouts.only-book', compact('book', 'books'));
+            return view('layouts.only-book', compact('book', 'books', 'comments'));
         } else {
             abort(404);
         }
@@ -139,6 +138,24 @@ class BooksController extends Controller
         $pdf =Pdf::loadView("components.crud.Books.listado-books", compact('books'));
         return $pdf->stream('listado.pdf');
     }
+
+    public function toggleLike(Books $book)
+        {
+            $user_id = auth()->id();
+
+            $liked = $book->likes->contains('users_id', $user_id);
+            
+            
+            if ($liked) {
+                $book->likes()->where('users_id', $user_id)->delete();
+            } else {
+                $book->likes()->create(['users_id' => $user_id]);
+            }
+            
+            return back();
+        }
+
+    
 }
 
 

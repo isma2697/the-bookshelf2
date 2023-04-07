@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Like extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['books_id', 'users_id'];
+
     public function users()
     {
         return $this->belongsTo(Users::class);

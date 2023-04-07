@@ -27,6 +27,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('books', [BooksController::class, 'store'])->name('admin.books.store');
     Route::get('books/{book}/edit', [BooksController::class, 'edit'])->name('admin.books.edit');
     Route::put('books/{book}', [BooksController::class, 'update'])->name('admin.books.update');
+
+    Route::post('/books/{book}/likes', [BooksController::class, 'toggleLike'])->name('likes.toggle');
+
     
     
     

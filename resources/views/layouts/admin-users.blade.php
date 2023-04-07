@@ -9,20 +9,19 @@
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-     <title>all users</title>
+    <title>all users</title>
 </head>
 <body>
     <x-mycomp.navbar-full/>
     <x-mycomp.floating-box/>
     <x-crud.Users.users :users="$users"/>
-
     
     
+    <script src="/public/js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
     <script type="text/javascript" src="//cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
-
-     <script>
+    <script>
         $(document).ready(function () {
             $('#table').DataTable({
                 "responsive": true,

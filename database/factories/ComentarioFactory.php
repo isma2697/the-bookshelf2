@@ -20,8 +20,8 @@ class ComentarioFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => User::inRandomOrder()->first()->id,
-            'book_id' => Books::inRandomOrder()->first()->id,
+            'users_id' => User::inRandomOrder()->first()->id,
+            'books_id' => Books::inRandomOrder()->first()->id,
             'comentario' => $this->faker->text(200),
         ];
     }
