@@ -1,18 +1,11 @@
 <div class="box-comments">
-    <form method="POST" >
-        {{-- action="{{ route('comments.store') }} --}}
-        @csrf
-        <div class="form-group">
-          <label for="name">Nombre</label>
-        </div>
-        <div class="form-group">
-          <label for="comment">Comentario</label>
-          <textarea name="comment" id="comment" class="form-control" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Enviar</button>
-      </form>
+    <form method="post" action="{{ route('comments.store') }}">
+      @csrf
+      <input type="hidden" name="book_id" value="{{ $book->id }}">
+      <textarea name="comment" placeholder="Escribe un comentario"></textarea>
+      <button type="submit">Enviar</button>
+    </form>
       <br>
-    
       @if($comments->count() > 0)
         <div class="comment-list">
           @foreach($comments as $comment)

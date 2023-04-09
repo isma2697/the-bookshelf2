@@ -3,6 +3,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BooksController;
+use App\Http\Controllers\ComentarioController;
 use App\Http\Controllers\UsersController;
 
   
@@ -30,7 +31,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('/books/{book}/likes', [BooksController::class, 'toggleLike'])->name('likes.toggle');
 
-    
+    Route::post('/comments', [ComentarioController::class, 'store'])->name('comments.store');
+
     
     
     
