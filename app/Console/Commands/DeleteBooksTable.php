@@ -17,9 +17,16 @@ class DeleteBooksTable extends Command
 
     public function handle()
     {
-        // Elimina los registros de la tabla books donde title o thumbnail sea NULL
+        // Elimina los registros de la tabla books donde title o thumbnail sea NULL o si esta vacio
         $deleted = Books::whereNull('title')
             ->orWhereNull('thumbnail')
+            ->orWhereNull('description')
+            ->orWhereNull('authors')    
+            ->orWhereNull('subtitle')
+            ->orWhereNull('published_date')
+            ->orWhereNull('page_count')
+            ->orWhereNull('categories')
+            ->orWhereNull('identifier')
             ->delete();
 
         $this->info("{$deleted} registros eliminados de la tabla books");

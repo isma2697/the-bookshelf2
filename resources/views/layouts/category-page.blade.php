@@ -10,15 +10,16 @@
     <title>CATEGORY</title>
 </head>
 <body>
-    <x-mycomp.navbar-full/>
+    {{-- <x-mycomp.navbar-full/>
     <x-mycomp.floating-box/>
-    {{-- <x-block.section-category/>
     <x-block.section-category/>
     <x-block.section-category/>
-    <x-block.section-category/> --}}
+    <x-block.section-category/>
+    <x-block.section-category/>
     <x-mycomp.image :books="$books"/>
 
-    <x-mycomp.footer/>
+    <x-mycomp.footer/> --}}
+
 
 
     <script src="{{ asset('js/app.js') }}"></script>

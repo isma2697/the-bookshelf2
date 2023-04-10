@@ -134,7 +134,8 @@ class BooksController extends Controller
     }
 
     public function listadoPdf(){
-        $books = Books::paginate(10);
+        $books = Books::all();
+        $books = $this->formatData($books);
         $pdf =Pdf::loadView("components.crud.Books.listado-books", compact('books'));
         return $pdf->stream('listado.pdf');
     }
