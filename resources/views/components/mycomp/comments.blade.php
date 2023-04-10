@@ -1,4 +1,5 @@
 <div class="box-comments">
+    <h2>Comentarios</h2>
     <form method="post" action="{{ route('comments.store') }}">
       @csrf
       <input type="hidden" name="book_id" value="{{ $book->id }}">
@@ -10,14 +11,17 @@
         <div class="comment-list">
           @foreach($comments as $comment)
             <div class="comment">
-              <h5>{{ $comment->user->name }}</h5>
+              <div class="comment-info">
+                <img src="{{ $comment->user->profile_photo_url }}" alt="{{ $comment->user->name }}" class="comment-img">
+                <h5>{{ $comment->user->name }}</h5>
+                <small>{{ $comment->created_at->diffForHumans() }}</small>
+              </div>
               <p>{{ $comment->comentario }}</p>
-              <small>{{ $comment->created_at->diffForHumans() }}</small>
             </div>
           @endforeach
         </div>
       @else
-        <p>No hay comentarios aún.</p>
+        <p class="noncomments">No hay comentarios aún.</p>
       @endif
     </div>
     

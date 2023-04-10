@@ -10,12 +10,10 @@
 @import url('section-category.css');
 @import url('table-crud.css');
 @import url('menu-category.css');
-@import url('listadopdf.css');
+@import url('comentarios.css');
 @import url('footer.css');
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
-
-
 
 *{
     margin: 0;
@@ -39,11 +37,4 @@ body::-webkit-scrollbar-thumb{
     border-radius: 1rem;
 }
 
-.imagebooks{
-    width: 100%;
-    
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 1rem;
-    
-}
+
