@@ -9,33 +9,7 @@ Alpine.plugin(focus);
 Alpine.start();
 
 
-
-//botones de navegación de carousel de de libros
-
-// Obtener elementos
-const carousel = document.querySelector('.carousel');
-const prevButton = document.querySelector('.carousel-control.prev');
-const nextButton = document.querySelector('.carousel-control.next');
-
-const scrollAmount = carousel.offsetWidth / 2;
-
-// Función de botón de avance
-nextButton.addEventListener('click', () => {
-  carousel.scrollBy({
-    left: scrollAmount,
-    behavior: 'smooth'
-  });
-});
-
-// Función de botón de retroceso
-prevButton.addEventListener('click', () => {
-  carousel.scrollBy({
-    left: -scrollAmount,
-    behavior: 'smooth'
-  });
-});
-
-// ----------------------------------------------------------------------------------------------------------------
+ console.log('Hello World!');
 
 //caja desplegable del usuario en el navbar
 const iconoUsuario = document.getElementById('icon-user');
@@ -70,4 +44,32 @@ arrowDown1.addEventListener("click", toggleMenu1);
 arrowDown2.addEventListener("click", toggleMenu2);
 
 
+// ----------------------------------------------------------------------------------------------------------------
+
+//botones de navegación de carousel de de libros
+
+// Obtener elementos
+const carousel = document.querySelector('.carousel');
+const prevButton = document.querySelector('.carousel-control.prev');
+const nextButton = document.querySelector('.carousel-control.next');
+
+const scrollAmount = carousel.offsetWidth / 2;
+
+// Función de botón de avance
+nextButton.addEventListener('click', () => {
+  carousel.scrollBy({
+    left: scrollAmount,
+    behavior: 'smooth'
+  });
+});
+
+// Función de botón de retroceso
+prevButton.addEventListener('click', () => {
+  carousel.scrollBy({
+    left: -scrollAmount,
+    behavior: 'smooth'
+  });
+});
+
+// ----------------------------------------------------------------------------------------------------------------
 

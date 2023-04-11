@@ -14,26 +14,15 @@
             <ul class="dropdown-menu">
 
                 <li>
-                    <a href="/">Categoria</a>
+                    <p>Categoria</p>
                     <img src="{{ asset('storage/svg/arrow-down.svg') }}" alt="arrow-down" id="arrow-down1">
                     <x-mycomp.menu-category/>
                 </li>
 
                 <li>
-                    <a href="/acerca-de">Editoriales</a>
+                    <p>Editoriales</p>
                     <img src="{{ asset('storage/svg/arrow-down.svg') }}" alt="arrow-down" id="arrow-down2">
-
-                    <div class="menu2">
-                        <ul class="dropdown-submenu">
-                            <li><a href="/">Inicio</a></li>
-                            <li><a href="/acerca-de">Acerca de</a></li>
-                            <li><a href="/contacto">Contacto</a></li>
-                            <li><a href="/">Inicio</a></li>
-                            <li><a href="/acerca-de">Acerca de</a></li>
-                            <li><a href="/contacto">Contacto</a></li>
-                            <li><a href="/contacto">Contacto</a></li>
-                        </ul>
-                    </div>
+                    {{-- <x-mycomp.menu-category/> --}}
                 </li>
 
                 <li><a href="/popular">Lo más popular</a></li>

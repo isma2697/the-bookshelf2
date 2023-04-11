@@ -24,12 +24,6 @@
     box-shadow: -1px 1px 5px 0 #bdbdbd;
 }
 
-
-.book-info-container>.book-info{
-    /* border: 1px solid #994040; */
-    min-width: 68em;
-}
-
 .book-info-container>.book-info>.info_db{
     /* border: 1px solid #cccccc; */
     margin: auto 1.5em;
