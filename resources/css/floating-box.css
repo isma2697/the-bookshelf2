@@ -1,0 +1,15 @@
+.floating-box{
+    position: absolute;
+    top: 4em;
+    right: 2.5em;
+}
+  
+.floating-box {
+  display: none;
+}
+  
+.floating-box.visible {
+  display: block;
+}
+  
+

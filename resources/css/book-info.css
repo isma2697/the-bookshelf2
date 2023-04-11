@@ -1,0 +1,49 @@
+.book-info-container{
+    padding: 2em;
+    max-width: 75%;
+    min-height: 60vh;
+    background-color: #ffffff;
+    margin: 3em auto 1em auto ;
+    /* border:1px solid red; */
+    border-radius: 0.45em;
+    box-shadow: -1px 1px 5px 0 #bdbdbd;
+    display: flex;
+    flex-direction: row;
+    gap: 1.4em;
+}
+
+.book-info-container>.book-img{
+    /* border: 1px solid #cccccc; */
+    min-width: 15em;
+}
+
+.book-info-container>.book-img>img{
+    max-width: 30em;
+    max-height: 40em;
+    margin: auto;
+    box-shadow: -1px 1px 5px 0 #bdbdbd;
+}
+
+
+.book-info-container>.book-info{
+    /* border: 1px solid #994040; */
+    min-width: 68em;
+}
+
+.book-info-container>.book-info>.info_db{
+    /* border: 1px solid #cccccc; */
+    margin: auto 1.5em;
+    font-size: 0.8em;  
+}
+.book-info-container>.book-info>.info{
+    /* border: 1px solid #cccccc; */
+    font-weight: bold;
+    color: #303030;
+}
+
+.book-info-container>.book-info>h2{
+    /* border: 1px solid #cccccc; */
+    font-size: 2em;
+    color: #303030;
+}
+

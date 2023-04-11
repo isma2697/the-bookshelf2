@@ -1,0 +1,41 @@
+.section-h1{
+    /* border: 1px solid #303030; */
+    margin: 1em 9em 0.5em 9.5em;
+    display: flex;
+    justify-content: flex-start;
+
+    font-size: 1.6em;
+    font-weight: 600;
+    font-family: 'Nunito', sans-serif;
+    color: #303030;
+
+}
+
+.section-carousel{
+    /* background-color: #303030 !important; */
+    border-radius: 1em;
+    height: 22.5em;
+    padding: 1em;
+    margin: 0em 14em;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: row ;
+    gap: 1em;
+
+}
+
+.cards{
+    min-width:14.13em;
+    background-color: #ffffff !important;
+    border-radius: 0.31em;
+    padding: 5px;
+    box-shadow: -1px 1px 5px 0 #bdbdbd;
+}
+
+
+
+
+
+
+

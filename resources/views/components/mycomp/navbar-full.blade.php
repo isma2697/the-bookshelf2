@@ -2,7 +2,9 @@
 
     <div class="navbar-option navbar">
         <div class="icon-logo">
-            <img src="{{ asset('storage/img/icon-logo.png') }}" alt="icon-logo" id="icon-logo">
+            <a href="{{ route('books.principal')}}">
+                <img src="{{ asset('storage/img/icon-logo.png') }}" alt="icon-logo" id="icon-logo">
+            </a>
         </div>
         <x-mycomp.user-session/>
     </div>
@@ -39,12 +41,7 @@
 
         </div>
         <div class="search">
-                <div class="form-outline">
-                  <input type="search" id="form1" class="form-control"  />
-                </div>
-                <button type="button" class="btn-search btn">
-                    <img src="{{ asset('storage/svg/search.svg') }}" alt="icon-search">
-                </button>
+            <livewire:book-search>
         </div>
     </div>
 

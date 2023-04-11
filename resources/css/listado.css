@@ -1,0 +1,14 @@
+.table{
+    width: 100%;
+    border: 1px solid #000;
+    border-collapse: collapse;
+}
+
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #a74141;
+}
