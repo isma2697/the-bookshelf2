@@ -1,15 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Http\Requests\StoreBooksRequest;
-use App\Http\Requests\UpdateBooksRequest;
 use App\Models\Books;
 use App\Models\Comentario;
-use Illuminate\Support\Facades\Cache;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
 class BooksController extends Controller
@@ -107,7 +102,7 @@ class BooksController extends Controller
      */
     public function edit($id)
     {
-        //
+
         $book = Books::find($id);
         return view('components.crud.Books.edit-book', compact('book'));
     }
@@ -117,7 +112,7 @@ class BooksController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
         $book = Books::find($id);
         unset($request['_token']);
         $book->update($request->all());
@@ -130,7 +125,7 @@ class BooksController extends Controller
      */
     public function destroy($id)
     {
-        //
+
         $libros = Books::find($id);
         $libros->delete();
     }
@@ -147,8 +142,7 @@ class BooksController extends Controller
             $user_id = auth()->id();
 
             $liked = $book->likes->contains('users_id', $user_id);
-            
-            
+             
             if ($liked) {
                 $book->likes()->where('users_id', $user_id)->delete();
             } else {
@@ -159,22 +153,19 @@ class BooksController extends Controller
         }
 
     public function show_category($category){
-        $books = Books::where('categories', 'LIKE', '%'.$category.'%')->get();
+        $books = Books::where('categories', 'LIKE', '%'.$category.'%')->paginate(30);
         $books = $this->formatData($books);
-        // dd($books);
         return view('layouts.category', compact('books'));
     }
+
     public function show_years($year)
     {
         $year = (int) $year;
         $limit_year = $year + 20;
-        // $books = Books::whereYear('published_date', '>=', $year)->whereYear('published_date', '<=', $limit_year)->get();
         $books = Books::where(DB::raw('CAST(substr(published_date, 1, 4) AS INTEGER)'), '>=', $year)
         ->where(DB::raw('CAST(substr(published_date, 1, 4) AS INTEGER)'), '<', $limit_year)
         ->paginate(30);
-        
         $books = $this->formatData($books);
-        // dd($books);
         return view('layouts.category', compact('books'));
     }
 
