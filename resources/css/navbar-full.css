@@ -1,7 +1,6 @@
-/* .navbar-full{
-    background-color: #b36868;
-    
-} */
+.navbar-full{
+    margin-bottom: 2em;
+} 
 
 .icon-logo{
     height: 2.7em;
@@ -30,15 +29,15 @@
     padding: 1em;
     height: 5em;
     background-color: #ffffff;
-    border: 2px solid #0400ff7e;
+    /* border: 2px solid #0400ff7e; */
 }
 
 .navbar-options{
-    margin-top: 0.2em;
-    padding: 0em 2em;
+    padding: 0.45em 2em;
     /* margin-top: 1em; */
     background-color: #ffffff;
-    border: 2px solid #db19196c;
+    box-shadow: 0em 0em 0.3em 0em #7e7e7e;
+    /* border: 2px solid #db19196c; */
 }
 
 
@@ -83,16 +82,14 @@
 
     display: flex;
     flex-direction: row;
-    gap: 3.5em;
+    gap: 1em;
 }
 
-.dropdown-menu>li>a{
-    color: #000000;
-    font-size: 1em;
-    margin-top: 0.5em;
-    text-decoration: none;
+.dropdown-menu>li{
+    display: flex;
+    flex-direction: row;
+    gap: 0.2em;
 }
-
 
 
 /* --------- */
@@ -100,16 +97,14 @@
 
 #arrow-down1{
     height: 2em;
-    position: absolute;
-    top: 5.5em;
-    left: 7.3em;
+    position: relative;
+    top: -0.2em;
 }
 
 #arrow-down2{
     height: 2em;
-    position: absolute;
-    top: 5.5em;
-    left: 15.5em;
+    position: relative;
+    top: -0.2em;
 }
 
 .menu1 ,.menu2 {

@@ -1,4 +1,8 @@
 <div class="menu1">
+    <div class="menu-title">
+        <h6>Lista de categorias</h6>
+        <hr>
+    </div>
     <ul class="dropdown-submenu">
         <div>
             <li><a href="{{route('books.category','art')}}">Art</a></li>

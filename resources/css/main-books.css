@@ -1,7 +1,6 @@
 .container-books{
     /* border: 2px solid red; */
     min-height: 10em;
-    
     margin-top: 4em;
 }
 
@@ -74,3 +73,7 @@
  }
 
 
+nav{
+    /* border: 2px solid red; */
+    margin: 0em 15em;
+}

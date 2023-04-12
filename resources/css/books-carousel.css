@@ -1,8 +1,9 @@
 .carousel{
+    /* box-shadow: 0em 0em 0.3em 0em #b ebebe; */
     border-radius: 1em;
     height: 22.5em;
     padding: 1em;
-    margin: 0em 12em;
+    margin: 0em 15em;
     overflow: hidden;
     display: flex;
     flex-direction: row ;
@@ -34,6 +35,11 @@
     font-weight: 600;
     font-family: 'Nunito', sans-serif;
 }
+.card-title{
+    /* border: 1px solid #271c1c; */
+    max-width: 14em;
+    max-height: 1em;
+}
 
 .card-img{
     border: 1px solid #cccccc;
@@ -44,22 +50,23 @@
 }
 
 
-.prev{
-    width: 2em;
-
+.btn-carousel-arrows{
+    margin: 0em 15em;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 1em;
 }
 
 .next{
     rotate: 180deg;
 }
 
-
-.btn-carousel-arrows{
-    /* border: 1px solid #000000; */
-    margin: 0em 12em;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    gap: 1em;
-    
+.carousel-control{
+    height: 2em;
+    width: 2em;
 }
+
+
+
+

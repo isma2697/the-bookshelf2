@@ -1,6 +1,6 @@
 <div class="btn-carousel-arrows">
-    <img src="{{asset('storage/svg/left-arrow.svg')}}" alt="left-arrow" class="carousel-control prev">
-    <img src="{{asset('storage/svg/left-arrow.svg')}}" alt="right-arrow" class="carousel-control next">
+    <img src="{{asset('svg/left-arrow.svg')}}" alt="left-arrow" class="carousel-control prev">
+    <img src="{{asset('svg/left-arrow.svg')}}" alt="right-arrow" class="carousel-control next">
 </div>
 <div class="carousel">
     @foreach($books as $book)
@@ -9,7 +9,7 @@
                 <img class="card-img " src="{{ $book->thumbnail}}" alt="{{ $book->title }}">
             </a>
             <div class="card-body">
-                <h5 class="card-title">{{ Str::limit($book->title,25) }}</h5>
+                <h5 class="card-title">{{ Str::limit($book->title,21) }}</h5>
             </div>
         </div>
     @endforeach
