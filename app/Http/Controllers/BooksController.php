@@ -9,6 +9,8 @@ use App\Models\Comentario;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class BooksController extends Controller
 {   
@@ -155,6 +157,26 @@ class BooksController extends Controller
             
             return back();
         }
+
+    public function show_category($category){
+        $books = Books::where('categories', 'LIKE', '%'.$category.'%')->get();
+        $books = $this->formatData($books);
+        // dd($books);
+        return view('layouts.category', compact('books'));
+    }
+    public function show_years($year)
+    {
+        $year = (int) $year;
+        $limit_year = $year + 20;
+        // $books = Books::whereYear('published_date', '>=', $year)->whereYear('published_date', '<=', $limit_year)->get();
+        $books = Books::where(DB::raw('CAST(substr(published_date, 1, 4) AS INTEGER)'), '>=', $year)
+        ->where(DB::raw('CAST(substr(published_date, 1, 4) AS INTEGER)'), '<', $limit_year)
+        ->paginate(30);
+        
+        $books = $this->formatData($books);
+        // dd($books);
+        return view('layouts.category', compact('books'));
+    }
 
     
 }

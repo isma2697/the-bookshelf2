@@ -30,4 +30,7 @@ Route::get('/apibooks', [ApiBookController::class, 'index'])->name('apibooks.ind
 Route::get('/category/{category}', [ApiBookController::class, 'category'])->name('apibooks.category');
 Route::get('/books', [BooksController::class, 'index'])->name('books.index');
 Route::get('/book/{id}', [BooksController::class, 'show'])->name('book.show');
+Route::get('/books/category/{category}', [BooksController::class ,'show_category'])->name('books.category');
+Route::get('/books/years/{years}', [BooksController::class ,'show_years'])->name('books.years');
+
 

@@ -3,7 +3,7 @@
     <div class="navbar-option navbar">
         <div class="icon-logo">
             <a href="{{ route('books.principal')}}">
-                <img src="{{ asset('storage/img/icon-logo.png') }}" alt="icon-logo" id="icon-logo">
+                <img src="{{ asset('storage/'.optional(auth()->user())->profile_photo) }}" alt="Imagen de perfil">
             </a>
         </div>
         <x-mycomp.user-session/>
@@ -20,9 +20,9 @@
                 </li>
 
                 <li>
-                    <p>Editoriales</p>
+                    <p>Año</p>
                     <img src="{{ asset('storage/svg/arrow-down.svg') }}" alt="arrow-down" id="arrow-down2">
-                    {{-- <x-mycomp.menu-category/> --}}
+                    <x-mycomp.menu-years/>
                 </li>
 
                 <li><a href="/popular">Lo más popular</a></li>
