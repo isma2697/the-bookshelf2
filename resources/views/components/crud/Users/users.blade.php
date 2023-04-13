@@ -39,7 +39,7 @@
                           </svg>
                     </button></td>
                     <td><a href="{{url('/admin/users')}}/{{$user->id}}/edit">
-                        <img src="{{ asset('storage/svg/edit.svg') }}" alt="edit" id="edit" style="height: 2.5em; width: 2.5em;">
+                        <img src="{{ asset('svg/edit.svg') }}" alt="edit" id="edit" style="height: 1.5em; width: 1.5em;">
                     </a></td>
                 </tr>
             @endforeach

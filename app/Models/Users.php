@@ -15,7 +15,8 @@ class Users extends Model
         'dni',
         'email',
         'password',
-        '_token'
+        '_token',
+        'is_admin',
     ];
 
     /**

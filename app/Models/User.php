@@ -30,7 +30,8 @@ class User extends Authenticatable
         'dni',
         'email',
         'password',
-        '_token'
+        '_token',
+        'is_admin',
     ];
 
     /**

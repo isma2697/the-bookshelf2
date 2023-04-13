@@ -48,10 +48,29 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $datos = $request->all();
-        //quitar el token para que no de error
+        // Define las reglas de validación para cada campo del formulario
+        $rules = [
+            'name' => 'required|string|max:255',
+            'surname' => 'required|string|max:255',
+            'dni' => 'required|string|max:9|unique:users',
+            'phone' => 'required|string|max:255',
+            'email' => 'required|email|max:255|unique:users',
+            'password' => 'required|string|min:6|confirmed',
+            'is_admin' => '',
+        ];
+
+        // Realiza la validación de los datos de la solicitud
+        $datos = $request->validate($rules);
+
+        // dd($datos);
+       
         unset($datos['_token']);
+        if (array_key_exists('is_admin', $datos)) {
+            $datos['is_admin'] = boolval($datos['is_admin']);
+        } else {
+            $datos['is_admin'] = false; // Por defecto, no es administrador
+        }
+        // dd($datos);
         Users::create($datos);
         return redirect()->route('admin.users.index');
     }
@@ -83,7 +102,14 @@ class UsersController extends Controller
         //
         $user = Users::find($id);
         unset($request['_token']);
-        $user->update($request->all());
+        $user->update([
+            'name' => $request->name,
+            'surname' => $request->surname,
+            'dni' => $request->dni,
+            'phone' => $request->phone,
+            'email' => $request->email,
+            'is_admin' => $request->has('is_admin') ? 1 : 0,
+        ]);
         return redirect()->route('admin.users.index');
     }
 
