@@ -99,18 +99,41 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // Define las reglas de validación para cada campo del formulario
+        $rules = [
+            'name' => 'required|string|max:255',
+            'surname' => 'required|string|max:255',
+            'dni' => 'required|string|max:9|unique:users,dni,'.$id,
+            'phone' => 'required|string|max:255',
+            'email' => 'required|email|max:255|unique:users,email,'.$id,
+            'is_admin' => '',
+        ];
+
+        // Realiza la validación de los datos de la solicitud
+        $datos = $request->validate($rules);
+
+        // Busca el usuario que se va a actualizar
         $user = Users::find($id);
-        unset($request['_token']);
+
+        if (array_key_exists('is_admin', $datos)) {
+            $datos['is_admin'] = boolval($datos['is_admin']);
+        } else {
+            $datos['is_admin'] = false; // Por defecto, no es administrador
+        }
+        // dd($datos);
+
+        // Actualiza los datos del usuario
         $user->update([
-            'name' => $request->name,
-            'surname' => $request->surname,
-            'dni' => $request->dni,
-            'phone' => $request->phone,
-            'email' => $request->email,
-            'is_admin' => $request->has('is_admin') ? 1 : 0,
+            'name' => $datos['name'],
+            'surname' => $datos['surname'],
+            'dni' => $datos['dni'],
+            'phone' => $datos['phone'],
+            'email' => $datos['email'],
+            'is_admin' => boolval($datos['is_admin']),
         ]);
-        return redirect()->route('admin.users.index');
+
+        // Redirige al usuario a la lista de usuarios
+        return redirect()->route('admin.users.index')->with('success', 'Usuario actualizado exitosamente');
     }
 
     /**
