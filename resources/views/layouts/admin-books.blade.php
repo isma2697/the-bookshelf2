@@ -12,18 +12,14 @@
     <title>all books</title>
 </head>
 <body>
+    
     <x-mycomp.navbar-full/>
     <x-mycomp.floating-box/>
     <x-crud.Books.books :books="$books"/>
     
     <x-mycomp.footer/>
-    
-    
-    
-    
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
     <script type="text/javascript" src="//cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
-
     <script>
         $(document).ready(function () {
             $('#table').DataTable({
