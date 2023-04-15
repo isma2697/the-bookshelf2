@@ -37,6 +37,20 @@ class BooksController extends Controller
         return view('layouts.admin-books', compact('books'));
     }
 
+   public function popular(){
+    $books = Books::leftJoin('likes', 'books.id', '=', 'likes.books_id')
+                ->select('books.*', DB::raw('COUNT(likes.id) as likes_count'))
+                ->groupBy('books.id')
+                ->orderBy('likes_count', 'DESC')
+                ->paginate(45);
+
+    $books = $this->formatData($books);
+    // dd($books);
+    return view('layouts.most-popular', compact('books'));
+}
+
+    
+
     public function principal(){
         $books = Books::paginate(40);
         $books = $this->formatData($books);

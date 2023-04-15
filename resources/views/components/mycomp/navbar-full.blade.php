@@ -22,7 +22,7 @@
                     <img src="{{ asset('svg/arrow-down.svg') }}" alt="arrow-down" id="arrow-down2">
                     <x-mycomp.menu-years/>
                 </li>
-                <li><a href="">Lo más popular</a></li>
+                <li><a href="{{route('books.popular')}}">Lo más popular</a></li>
             </ul>
 
         </div>
