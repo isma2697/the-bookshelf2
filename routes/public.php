@@ -21,12 +21,9 @@ use App\Http\Controllers\UsersController;
 
 Route::get('/', [BooksController::class, 'principal'])->name('books.principal');
 
-Route::get('/category', function () {
-    return view('layouts.category-page');
-});
+// Route::get('/apibooks', [ApiBookController::class, 'index'])->name('apibooks.index');
 
 
-Route::get('/apibooks', [ApiBookController::class, 'index'])->name('apibooks.index');
 Route::get('/category/{category}', [ApiBookController::class, 'category'])->name('apibooks.category');
 Route::get('/books', [BooksController::class, 'index'])->name('books.index');
 Route::get('/books/popular', [BooksController::class, 'popular'])->name('books.popular');

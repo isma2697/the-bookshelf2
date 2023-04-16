@@ -12,16 +12,14 @@ class UsersController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
-        // $this->middleware(function ($request, $next) {
-        //     $user = auth()->user();
-        //     if ($user && $user->is_admin != true) {
-        //         $user->is_admin = true;
-        //         $user->save();
-        //     }
-        //     return $next($request);
-        // });
-        
+        // $this->middleware('auth')->only(['function1', 'function2', 'function3']);
+        $this->middleware(function ($request, $next) {
+            $user = auth()->user();
+            if ($user && $user->is_admin) {
+                return $next($request); // Si es un usuario autenticado y administrador, continúa con la solicitud
+            }
+            abort(403); // Si no es administrador, muestra un error 403 de acceso no autorizado
+        })->only(['index', 'create', 'store', 'edit', 'update', 'destroy', 'listadoPdf']);
     }
 
     /**
@@ -29,9 +27,8 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
         $users = Users::all();
-        return view('layouts.admin-users', compact('users'));
+        return view('my-views.admin-users', compact('users'));
     }
 
     /**
@@ -39,7 +36,6 @@ class UsersController extends Controller
      */
     public function create()
     {
-        //
         return view('components.crud.Users.create-user');
     }
 
@@ -88,10 +84,8 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
         $user = Users::find($id);
         return view('components.crud.Users.edit-user', compact('user'));
-
     }
 
     /**

@@ -33,9 +33,6 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('/comments', [ComentarioController::class, 'store'])->name('comments.store');
 
-    
-    
-    
     Route::get('users', [UsersController::class, 'index'])->name('admin.users.index');
     Route::delete('users/{user}', [UsersController::class, 'destroy'])->name('admin.users.destroy');
     Route::get("/users/listado", [UsersController::class, 'listadoPdf'])->name("admin.users.listado-users");

@@ -9,6 +9,18 @@ use Illuminate\Support\Facades\DB;
 
 class BooksController extends Controller
 {   
+    public function __construct()
+    {
+        // $this->middleware('auth')->only(['function1', 'function2', 'function3']);
+        $this->middleware(function ($request, $next) {
+            $user = auth()->user();
+            if ($user && $user->is_admin) {
+                return $next($request); // Si es un usuario autenticado y administrador, continúa con la solicitud
+            }
+            abort(403); // Si no es administrador, muestra un error 403 de acceso no autorizado
+        })->only(['index', 'create', 'store', 'edit', 'update', 'destroy', 'listadoPdf']);
+    }
+    
     private function formatData($books) {
         foreach ($books as $book) {
             
@@ -34,7 +46,7 @@ class BooksController extends Controller
     
         $books = $this->formatData($books);
         // dd($books);
-        return view('layouts.admin-books', compact('books'));
+        return view('my-views.admin-books', compact('books'));
     }
 
    public function popular(){
@@ -46,7 +58,7 @@ class BooksController extends Controller
 
     $books = $this->formatData($books);
     // dd($books);
-    return view('layouts.most-popular', compact('books'));
+    return view('my-views.most-popular', compact('books'));
 }
 
     
@@ -54,7 +66,7 @@ class BooksController extends Controller
     public function principal(){
         $books = Books::paginate(40);
         $books = $this->formatData($books);
-        return view('layouts.principal', compact('books'));
+        return view('my-views.principal', compact('books'));
     }
 
     /**
@@ -104,7 +116,7 @@ class BooksController extends Controller
             if (is_array($book->categories)) {
                 $book->categories = implode(", ", $book->categories);
             }
-            return view('layouts.only-book', compact('book', 'books', 'comments'));
+            return view('my-views.only-book', compact('book', 'books', 'comments'));
         } else {
             abort(404);
         }
@@ -169,7 +181,7 @@ class BooksController extends Controller
     public function show_category($category){
         $books = Books::where('categories', 'LIKE', '%'.$category.'%')->paginate(30);
         $books = $this->formatData($books);
-        return view('layouts.category', compact('books'));
+        return view('my-views.category', compact('books'));
     }
 
     public function show_years($year)
@@ -180,10 +192,8 @@ class BooksController extends Controller
         ->where(DB::raw('CAST(substr(published_date, 1, 4) AS INTEGER)'), '<', $limit_year)
         ->paginate(30);
         $books = $this->formatData($books);
-        return view('layouts.category', compact('books'));
+        return view('my-views.category', compact('books'));
     }
-
-    
 }
 
 

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,12 +11,8 @@
 </head>
 <body>
     <x-mycomp.navbar-full/>
-    <x-mycomp.floating-box/>
-    <x-mycomp.book-info :book="$book"/>
-    <x-mycomp.comments :comments="$comments" :book="$book"/>
-    <x-mycomp.section-books :books="$books"/>  
-    <x-mycomp.footer/>
+    @yield('content')
 
     @livewireScripts
 </body>
-</html>
+</html> 
