@@ -69,5 +69,11 @@ class Users extends Model
         return $this->hasMany(Bookmark::class);
     }
     
+    public function loans()
+    {
+        return $this->hasMany(Loan::class);
+    }
+    
+    
 
 }
