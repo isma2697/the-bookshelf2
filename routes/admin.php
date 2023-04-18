@@ -40,6 +40,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('users', [UsersController::class, 'store'])->name('admin.users.store');
     Route::get('users/{user}/edit', [UsersController::class, 'edit'])->name('admin.users.edit');
     Route::put('users/{user}', [UsersController::class, 'update'])->name('admin.users.update');
+
+    
+
 });
 
 

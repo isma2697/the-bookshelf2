@@ -3,17 +3,16 @@
 namespace Database\Factories;
 
 use App\Models\Books;
-use App\Models\Reserva;
+use App\Models\Reserve;
 use App\Models\User;
-use App\Models\Users;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Reserva>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Reserve>
  */
-class ReservaFactory extends Factory
+class ReserveFactory extends Factory
 {
-    protected $model = Reserva::class;
+    protected $model = Reserve::class;
 
     public function definition()
     {

@@ -43,4 +43,10 @@ class Books extends Model
         return $this->hasMany(Reserva::class);
     }
 
+    public function bookmarks()
+    {
+        return $this->hasMany(Bookmark::class);
+    }
+    
+
 }
