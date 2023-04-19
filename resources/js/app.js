@@ -23,25 +23,54 @@ iconoUsuario.addEventListener('click', function() {
   }
 });
 
+document.addEventListener('click', function(event) {
+  const target = event.target;
+  const isClickInsideIconoUsuario = iconoUsuario.contains(target);
+  const isClickInsideFloatingBox = floatingBox.contains(target);
+
+  if (!isClickInsideIconoUsuario && !isClickInsideFloatingBox && floatingBox.classList.contains('visible')) {
+    floatingBox.classList.remove('visible');
+  }
+});
+
+
 
 // ----------------------------------------------------------------------------------------------------------------
-
 
 const arrowDown1 = document.getElementById("arrow-down1");
 const arrowDown2 = document.getElementById("arrow-down2");
 const menu1 = document.querySelector(".menu1");
 const menu2 = document.querySelector(".menu2");
 
+function closeBothMenus() {
+  menu1.classList.remove("show");
+  menu2.classList.remove("show");
+}
+
 function toggleMenu1() {
+  closeBothMenus();
   menu1.classList.toggle("show");
 }
 
 function toggleMenu2() {
+  closeBothMenus();
   menu2.classList.toggle("show");
 }
 
-arrowDown1.addEventListener("click", toggleMenu1);
-arrowDown2.addEventListener("click", toggleMenu2);
+arrowDown1.addEventListener("click", function(event) {
+  event.stopPropagation();
+  toggleMenu1();
+});
+
+arrowDown2.addEventListener("click", function(event) {
+  event.stopPropagation();
+  toggleMenu2();
+});
+
+document.addEventListener("click", function() {
+  closeBothMenus();
+});
+
 
 
 // ----------------------------------------------------------------------------------------------------------------

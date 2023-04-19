@@ -15,31 +15,20 @@
                     <hr class="border-gray-200 dark:border-gray-700 ">
                     
                     <x-dropdown-link href="{{ route('profile.show') }}">
-                        {{ __('Profile') }}
+                        {{ __('Perfil') }}
                     </x-dropdown-link>
+
+                    <a href="#" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
+                        Mis libros
+                    </a>
                     
                     <a href="#" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
-                        Settings
+                        Likes
                     </a>
                     <a href="#" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
-                        Keyboard shortcuts
+                        Guardados
                     </a>
                     <hr class="border-gray-200 dark:border-gray-700 ">
-                    
-                    {{-- <a href="#" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
-                        Company profile
-                    </a>
-                    <a href="#" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
-                        Team
-                    </a>
-                    <a href="#" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
-                        Invite colleagues
-                    </a>
-                    <hr class="border-gray-200 dark:border-gray-700 "> --}}
-                    
-                    <a href="#" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
-                        Help
-                    </a>
                     <form method="POST" action="{{ route('logout') }}" x-data>
                         @csrf
                         <x-dropdown-link href="{{ route('logout') }}"
