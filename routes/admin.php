@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\BookmarkController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BooksController;
 use App\Http\Controllers\ComentarioController;
@@ -32,6 +32,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/books/{book}/likes', [BooksController::class, 'toggleLike'])->name('likes.toggle');
 
     Route::post('/comments', [ComentarioController::class, 'store'])->name('comments.store');
+    
+    Route::post('/books/{book}/bookmark', [BookmarkController::class, 'toggle'])->name('bookmarks.toggle');
+
 
     Route::get('users', [UsersController::class, 'index'])->name('admin.users.index');
     Route::delete('users/{user}', [UsersController::class, 'destroy'])->name('admin.users.destroy');

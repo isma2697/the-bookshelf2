@@ -2,10 +2,39 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bookmark;
 use Illuminate\Http\Request;
 
 class BookmarkController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    public function toggle($book_id)
+    {
+        $user_id = auth()->id();
+
+        $bookmark = Bookmark::where('users_id', $user_id)->where('books_id', $book_id)->first();
+
+        if ($bookmark) {
+            // Si existe un marcador, eliminarlo
+            $bookmark->delete();
+        } else {
+            // Si no existe un marcador, crear uno nuevo
+            Bookmark::create([
+                'users_id' => $user_id,
+                'books_id' => $book_id,
+            ]);
+        }
+
+        return back();
+    }
+
+
+
     /**
      * Display a listing of the resource.
      */

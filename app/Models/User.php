@@ -80,7 +80,7 @@ class User extends Authenticatable
 
     public function bookmarks()
     {
-        return $this->hasMany(Bookmark::class);
+        return $this->hasMany(Bookmark::class,'users_id', 'books_id');
     }
     
     public function loans()

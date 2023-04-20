@@ -66,7 +66,7 @@ class Users extends Model
 
     public function bookmarks()
     {
-        return $this->hasMany(Bookmark::class);
+        return $this->hasMany(Bookmark::class,'users_id', 'books_id');
     }
     
     public function loans()
