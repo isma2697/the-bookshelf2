@@ -3,6 +3,7 @@
         <img class="card-img " src="{{ $book->thumbnail}}" alt="{{ $book->title }}">
         <x-mycomp.likes :book="$book"/>
         <x-mycomp.bookmark-button :book="$book"/>
+        <x-mycomp.reserve :book="$book"/>
 
     </div>
     <div class="book-info">

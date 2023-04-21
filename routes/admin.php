@@ -4,6 +4,7 @@ use App\Http\Controllers\BookmarkController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BooksController;
 use App\Http\Controllers\ComentarioController;
+use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\UsersController;
 
   
@@ -34,6 +35,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/comments', [ComentarioController::class, 'store'])->name('comments.store');
     
     Route::post('/books/{book}/bookmark', [BookmarkController::class, 'toggle'])->name('bookmarks.toggle');
+
+    Route::post('/books/{book}/reservations', [ReservationController::class, 'toggle'])->name('reservations.toggle');
+
 
 
     Route::get('users', [UsersController::class, 'index'])->name('admin.users.index');

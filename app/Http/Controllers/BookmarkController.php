@@ -13,11 +13,12 @@ class BookmarkController extends Controller
         $this->middleware('auth');
     }
 
-    public function toggle($book_id)
+   
+    public function toggle(Request $request, $bookId)
     {
         $user_id = auth()->id();
 
-        $bookmark = Bookmark::where('users_id', $user_id)->where('books_id', $book_id)->first();
+        $bookmark = Bookmark::where('users_id', $user_id)->where('books_id', $bookId)->first();
 
         if ($bookmark) {
             // Si existe un marcador, eliminarlo
@@ -26,7 +27,7 @@ class BookmarkController extends Controller
             // Si no existe un marcador, crear uno nuevo
             Bookmark::create([
                 'users_id' => $user_id,
-                'books_id' => $book_id,
+                'books_id' => $bookId,
             ]);
         }
 

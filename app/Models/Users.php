@@ -59,9 +59,9 @@ class Users extends Model
         return $this->hasMany(Comentario::class);
     }
 
-    public function reservas()
+    public function reserves()
     {
-        return $this->hasMany(Reserva::class);
+        return $this->hasMany(Reserve::class);
     }
 
     public function bookmarks()

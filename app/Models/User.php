@@ -73,9 +73,9 @@ class User extends Authenticatable
         return $this->hasMany(Comentario::class);
     }
 
-    public function reservas()
+    public function reserves()
     {
-        return $this->hasMany(Reserva::class);
+        return $this->hasMany(Reserve::class ,'users_id', 'books_id');
     }
 
     public function bookmarks()
@@ -85,7 +85,7 @@ class User extends Authenticatable
     
     public function loans()
     {
-        return $this->hasMany(Loan::class);
+        return $this->hasMany(Loan::class ,'users_id', 'books_id');
     }
     
 
