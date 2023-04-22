@@ -5,6 +5,7 @@ namespace Database\Factories;
 use App\Models\Books;
 use App\Models\Reserve;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,8 +20,8 @@ class ReserveFactory extends Factory
         return [
             'users_id' => User::inRandomOrder()->first()->id,
             'books_id' => Books::inRandomOrder()->first()->id,
-            'fecha_reserva' => $this->faker->dateTimeBetween('-1 month', 'now'),
-            'fecha_vencimiento' => $this->faker->dateTimeBetween('now', '+1 month'),
+            'fecha_reserva' => Carbon::now(),
+            'fecha_vencimiento' => Carbon::now()->addDays(7),
         ];
     }
 }

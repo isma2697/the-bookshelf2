@@ -83,6 +83,22 @@ class BooksController extends Controller
      */
     public function store(Request $request)
     {
+        
+        $rules = [
+            'title'          => 'required|max:255',
+            'subtitle'       => 'required|max:255',
+            'authors'        => 'required|max:255',
+            'description'    => 'required|max:1000',
+            'categories'     => 'required|max:255',
+            'published_date' => 'required|date',
+            'page_count'     => 'required|numeric',
+            'thumbnail'      => 'required|max:255',
+            'identifier'     => 'required|max:255',
+        ];
+
+        // Realiza la validación de los datos de la solicitud
+        $datos = $request->validate($rules);
+
         //
         $datos = $request->all();
         //quitar el token para que no de error
@@ -121,6 +137,7 @@ class BooksController extends Controller
             abort(404);
         }
 
+
     }
 
     /**
@@ -138,13 +155,27 @@ class BooksController extends Controller
      */
     public function update(Request $request, $id)
     {
-
+        $rules = [
+            'title'          => 'required|max:255',
+            'subtitle'       => 'required|max:255',
+            'authors'        => 'required|max:255',
+            'description'    => 'required|max:1000',
+            'categories'     => 'required|max:255',
+            'published_date' => 'required|date',
+            'page_count'     => 'required|numeric',
+            'thumbnail'      => 'required|max:255',
+            'identifier'     => 'required|max:255',
+        ];
+    
+        // Realiza la validación de los datos de la solicitud
+        $datos = $request->validate($rules);
+    
         $book = Books::find($id);
-        unset($request['_token']);
-        $book->update($request->all());
+        unset($datos['_token']);
+        $book->update($datos);
         return redirect()->route('admin.books.index');
-
     }
+    
 
     /**
      * Remove the specified resource from storage.

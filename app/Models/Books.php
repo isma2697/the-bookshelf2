@@ -40,17 +40,17 @@ class Books extends Model
 
     public function reserves()
     {
-        return $this->hasMany(Reserve::class);
+        return $this->hasMany(Reserve::class ,'users_id', 'books_id');
     }
 
     public function bookmarks()
     {
-        return $this->hasMany(Bookmark::class);
+        return $this->hasMany(Bookmark::class,'users_id', 'books_id');
     }
     
     public function loans()
     {
-        return $this->hasMany(Loan::class);
+        return $this->hasMany(Loan::class ,'users_id', 'books_id');
     }
     
     

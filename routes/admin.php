@@ -4,6 +4,7 @@ use App\Http\Controllers\BookmarkController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BooksController;
 use App\Http\Controllers\ComentarioController;
+use App\Http\Controllers\LoanController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\UsersController;
 
@@ -47,6 +48,19 @@ Route::middleware(['auth'])->group(function () {
     Route::post('users', [UsersController::class, 'store'])->name('admin.users.store');
     Route::get('users/{user}/edit', [UsersController::class, 'edit'])->name('admin.users.edit');
     Route::put('users/{user}', [UsersController::class, 'update'])->name('admin.users.update');
+
+    Route::get('loans', [LoanController::class, 'index'])->name('admin.loans.index');
+    Route::get('/confirm-loan/{book}', [LoanController::class, 'edit'])->name('loans.confirm');
+    //listado
+    Route::get("/loans/listado", [LoanController::class, 'listadoPdf'])->name("admin.loans.listado-loans");
+
+    Route::get('reservations', [ReservationController::class, 'index'])->name('admin.reservations.index');
+    Route::post('/reservations/toggle/{book}', [ReservationController::class, 'toggle'])->name('reservations.toggle');
+
+    Route::get('/confirm-reservation/{book}', [ReservationController::class, 'confirmReservation'])->name('reservations.confirm');
+
+    // admin.reserve.listado.reservation
+    Route::get("/reservations/listado", [ReservationController::class, 'listadoPdf'])->name("admin.reserve.listado.reservation");
 
     
 

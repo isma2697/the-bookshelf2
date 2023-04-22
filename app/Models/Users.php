@@ -61,7 +61,7 @@ class Users extends Model
 
     public function reserves()
     {
-        return $this->hasMany(Reserve::class);
+        return $this->hasMany(Reserve::class ,'users_id', 'books_id');
     }
 
     public function bookmarks()
@@ -71,7 +71,7 @@ class Users extends Model
     
     public function loans()
     {
-        return $this->hasMany(Loan::class);
+        return $this->hasMany(Loan::class ,'users_id', 'books_id');
     }
     
     

@@ -9,10 +9,9 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <title>all books</title>
+    <title>Registros de los libros</title>
 </head>
 <body>
-    
     <x-mycomp.navbar-full/>
     <x-mycomp.floating-box/>
     <x-crud.Books.books :books="$books"/>
