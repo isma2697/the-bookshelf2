@@ -18,7 +18,7 @@
                         {{ __('Perfil') }}
                     </x-dropdown-link>
 
-                    <a href="#" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
+                    <a href="{{route("profile.likes")}}" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
                         Mis libros
                     </a>
                     
@@ -29,8 +29,8 @@
                         Guardados
                     </a>
                     <hr class="border-gray-200 dark:border-gray-700 ">
-                    @if (auth()->user()->is_admin == 1)
-                        <a href="#" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
+                    @if (auth()->check() && auth()->user()->is_admin == 1)
+                        <a href="{{route("admin.panel-control")}}" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
                             Panel de control - Admin
                         </a>
                     @endif

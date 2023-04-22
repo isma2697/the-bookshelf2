@@ -11,12 +11,13 @@ class Bookmark extends Model
 
     protected $fillable = ['users_id', 'books_id'];
 
-    public function user()
+    public function users()
     {
         return $this->belongsTo(User::class);
     }
 
-    public function book()
+
+    public function books()
     {
         return $this->belongsTo(Books::class);
     }

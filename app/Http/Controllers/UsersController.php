@@ -139,6 +139,10 @@ class UsersController extends Controller
         $usuario->delete();
     }
 
+    public function panelControl(){
+        return view('my-views.panel-control');
+    }
+
     public function listadoPdf(){
         $users = Users::all();
         $pdf =Pdf::loadView("components.crud.Users.listado-users", compact('users'));

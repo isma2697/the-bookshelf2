@@ -9,11 +9,12 @@ class Comentario extends Model
 {
     use HasFactory;
     
-    public function user()
+    public function users()
     {
         return $this->belongsTo(User::class, 'users_id');
     }
 
+    
     public function books()
     {
         return $this->belongsTo(Books::class);

@@ -36,10 +36,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/comments', [ComentarioController::class, 'store'])->name('comments.store');
     
     Route::post('/books/{book}/bookmark', [BookmarkController::class, 'toggle'])->name('bookmarks.toggle');
-
     Route::post('/books/{book}/reservations', [ReservationController::class, 'toggle'])->name('reservations.toggle');
-
-
 
     Route::get('users', [UsersController::class, 'index'])->name('admin.users.index');
     Route::delete('users/{user}', [UsersController::class, 'destroy'])->name('admin.users.destroy');
@@ -51,17 +48,18 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('loans', [LoanController::class, 'index'])->name('admin.loans.index');
     Route::get('/confirm-loan/{book}', [LoanController::class, 'edit'])->name('loans.confirm');
-    //listado
     Route::get("/loans/listado", [LoanController::class, 'listadoPdf'])->name("admin.loans.listado-loans");
 
     Route::get('reservations', [ReservationController::class, 'index'])->name('admin.reservations.index');
     Route::post('/reservations/toggle/{book}', [ReservationController::class, 'toggle'])->name('reservations.toggle');
-
     Route::get('/confirm-reservation/{book}', [ReservationController::class, 'confirmReservation'])->name('reservations.confirm');
-
-    // admin.reserve.listado.reservation
     Route::get("/reservations/listado", [ReservationController::class, 'listadoPdf'])->name("admin.reserve.listado.reservation");
 
+    Route::get("/panel-control", [UsersController::class, 'panelControl'])->name("admin.panel-control");
+
+    Route::get('/profile/likes', function () {
+        return view('my-views.panel-user');
+    })->middleware(['auth'])->name('profile.likes');
     
 
 });

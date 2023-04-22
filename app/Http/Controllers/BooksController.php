@@ -117,10 +117,10 @@ class BooksController extends Controller
 
         $book = Books::find($id);
         $comments = $book->comentarios ?? null;
-        $comments = Comentario::where('books_id', $id)->with('user')->get();
+        $comments = Comentario::where('books_id', $id)->with('users')->get();
 
         foreach ($comments as $comment) {
-            $comment->users_id = $comment->user->name;
+            $comment->users_id = $comment->users->name;
         }
         
         if ($book) {

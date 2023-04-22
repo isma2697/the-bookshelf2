@@ -12,8 +12,8 @@
           @foreach($comments as $comment)
             <div class="comment">
               <div class="comment-info">
-                <img src="{{ $comment->user->profile_photo_path }}" alt="{{ $comment->user->name }}" class="comment-img">
-                <h5>{{ $comment->user->name }}</h5>
+                {{-- <img src="{{ $comment->users->profile_photo_path }}" alt="{{ $comment->user->name }}" class="comment-img"> --}}
+                <h5>{{ $comment->users->name }}</h5>
                 <small>{{ $comment->created_at->diffForHumans() }}</small>
               </div>
               <p>{{ $comment->comentario }}</p>

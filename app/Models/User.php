@@ -63,15 +63,16 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
     public function likes()
     {
-        return $this->hasMany(Like::class);
+        return $this->hasMany(Like::class ,'users_id', 'books_id');
     }
 
     public function comentarios()
     {
         return $this->hasMany(Comentario::class);
-    }
+    }                          
 
     public function reserves()
     {
