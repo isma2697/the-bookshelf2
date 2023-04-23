@@ -1,5 +1,8 @@
 @php
-    $reserved = auth()->user()->reserves()->where('books_id', $book->id)->exists();
+    $reserved = false;
+    if (auth()->check()) {
+        $reserved = auth()->user()->reserves()->where('books_id', $book->id)->exists();
+    }
 @endphp
 
 <form action="{{ route('reservations.toggle', $book->id) }}" method="POST" class="d-inline">

@@ -1,6 +1,10 @@
 
 @php
-    $bookmarked = auth()->user()->bookmarks()->where('books_id', $book)->exists();
+    $bookmarked = false;
+    if (auth()->check()) {
+        $bookmarked = auth()->user()->bookmarks()->where('books_id', $book)->exists();
+    }
+    
 @endphp
 
 <form action="{{ route('bookmarks.toggle', $book) }}" method="POST" class="d-inline">
