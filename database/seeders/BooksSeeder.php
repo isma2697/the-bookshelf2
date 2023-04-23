@@ -10,7 +10,7 @@ use App\Models\Books;
 class BooksSeeder extends Seeder
 {
 
-    private function manipulatePublishedDate($publishedDate)
+    public function manipulatePublishedDate($publishedDate)
     {
         if (strlen($publishedDate) == 4) {
             // genera una fecha aleatoria en el formato yyyy-mm-dd

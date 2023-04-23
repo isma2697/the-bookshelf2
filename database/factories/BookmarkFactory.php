@@ -33,20 +33,36 @@ class BookmarkFactory extends Factory
         })->inRandomOrder()->first();
 
         // Verifica si el registro ya existe en la tabla 'bookmarks'
-        $existingBookmark = Bookmark::where('users_id', $user->id)->where('books_id', $book->id)->first();
+        $existingBookmark = Bookmark::where('users_id', $user->id)->where('books_id', $book->id)->exists();
+
 
         if ($existingBookmark) {
-            // Si el registro ya existe, puede generar un nuevo registro o ignorar la inserción
-            return [
-                'users_id' => null,
-                'books_id' => null,
-            ];
+            // Si el registro ya existe, no hagas nada
+            return [];
         } else {
             return [
                 'users_id' => $user->id,
                 'books_id' => $book->id,
             ];
         }
+
+
+
+
+
+
+        // if ($existingBookmark) {
+        //     // Si el registro ya existe, puede generar un nuevo registro o ignorar la inserción
+        //     return [
+        //         'users_id' => null,
+        //         'books_id' => null,
+        //     ];
+        // } else {
+        //     return [
+        //         'users_id' => $user->id,
+        //         'books_id' => $book->id,
+        //     ];
+        // }
     }
 
 }

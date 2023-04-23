@@ -26,4 +26,10 @@
     php artisan books:delete
 
     
+    php artisan test --filter BooksSeederTest
+
+    php artisan test --filter ApiBookControllerTest
+ 
+    php artisan test --filter BooksControllerTest
+
     
