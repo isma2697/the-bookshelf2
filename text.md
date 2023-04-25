@@ -25,7 +25,7 @@
     borrar libros sin title y thumbnail
     php artisan books:delete
 
-    
+    tests 3
     php artisan test --filter BooksSeederTest
 
     php artisan test --filter ApiBookControllerTest
