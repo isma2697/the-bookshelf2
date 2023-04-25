@@ -19,7 +19,7 @@ class UsersController extends Controller
                 return $next($request); // Si es un usuario autenticado y administrador, continúa con la solicitud
             }
             abort(403); // Si no es administrador, muestra un error 403 de acceso no autorizado
-        })->only(['index', 'create', 'store', 'edit', 'update', 'destroy', 'listadoPdf']);
+        })->only(['index', 'create', 'store', 'edit', 'update', 'destroy', 'listadoPdf', 'panelControl']);
     }
 
     /**

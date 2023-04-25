@@ -10,7 +10,13 @@ class LoanController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware(function ($request, $next) {
+            $user = auth()->user();
+            if ($user && $user->is_admin) {
+                return $next($request); // Si es un usuario autenticado y administrador, continúa con la solicitud
+            }
+            abort(403); // Si no es administrador, muestra un error 403 de acceso no autorizado
+        })->only(['index', 'create', 'store', 'edit', 'update', 'destroy', 'listadoPdf']);
     }
 
     public function index()
