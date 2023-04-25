@@ -20,6 +20,8 @@ class BooksController extends Controller
             abort(403); // Si no es administrador, muestra un error 403 de acceso no autorizado
         })->only(['index', 'create', 'store', 'edit', 'update', 'destroy', 'listadoPdf']);
     }
+
+ 
     
     private function formatData($books) {
         foreach ($books as $book) {
@@ -75,7 +77,10 @@ class BooksController extends Controller
     public function create()
     {
         //
-        return view('components.crud.Books.create-book');
+        $categories = [
+            'Art', 'Biographies & Autobiographies', 'Business & Economics', "Children's Books", 'Classics', 'Comics & Graphic Novels', 'Computers & Internet', 'Cooking', 'Education', 'Entertainment', 'Fiction & Literature', 'Health, Mind & Body', 'History', 'Home & Garden', 'Horror', 'Humor', 'Foreign Language Study', 'Young Adult Fiction', 'Law', 'LGBT', 'Literary Collections', 'Mathematics', 'Medical', 'Mystery & Detective', 'Nonfiction', 'Poetry', 'Political Science', 'Psychology', 'Religion & Spirituality', 'Science', 'Science Fiction & Fantasy', 'Self-Help', 'Sports & Outdoors', 'Study Aids', 'Travel'
+        ];
+        return view('components.crud.Books.create-book', compact('categories'));
     }
 
     /**
@@ -85,25 +90,38 @@ class BooksController extends Controller
     {
         
         $rules = [
-            'title'          => 'required|max:255',
-            'subtitle'       => 'required|max:255',
-            'authors'        => 'required|max:255',
-            'description'    => 'required|max:1000',
-            'categories'     => 'required|max:255',
+            'title'          => 'required|string|max:255',
+            'subtitle'       => 'required|string|max:255',
+            'authors'        => 'required|string|max:255',
+            'description'    => 'required|string|max:1000',
+            'categories'     => 'required',
             'published_date' => 'required|date',
-            'page_count'     => 'required|numeric',
-            'thumbnail'      => 'required|max:255',
-            'identifier'     => 'required|max:255',
+            'page_count'     => 'required|string|numeric',
+            'thumbnail'      => 'required|string|max:255',
+            'identifier'     => 'required|string|max:255',
         ];
 
         // Realiza la validación de los datos de la solicitud
         $datos = $request->validate($rules);
 
         //
+        
+        $selectedCategories = implode(',', $request->input('categories', []));
+
         $datos = $request->all();
         //quitar el token para que no de error
         unset($datos['_token']);
-        Books::create($datos);
+        $book = new Books;
+        $book->title = $request->input('title');
+        $book->subtitle = $request->input('subtitle');
+        $book->authors = json_encode($request->input('authors'));
+        $book->description = $request->input('description');
+        $book->categories = json_encode($selectedCategories);
+        $book->published_date = $request->input('published_date');
+        $book->page_count = $request->input('page_count');
+        $book->thumbnail = $request->input('thumbnail');
+        $book->identifier = $request->input('identifier');
+        $book->save();
         return redirect()->route('admin.books.index');
     }
 
@@ -145,36 +163,58 @@ class BooksController extends Controller
      */
     public function edit($id)
     {
-
+        $categories = [
+            'Art', 'Biographies & Autobiographies', 'Business & Economics', "Children's Books", 'Classics', 'Comics & Graphic Novels', 'Computers & Internet', 'Cooking', 'Education', 'Entertainment', 'Fiction & Literature', 'Health, Mind & Body', 'History', 'Home & Garden', 'Horror', 'Humor', 'Foreign Language Study', 'Young Adult Fiction', 'Law', 'LGBT', 'Literary Collections', 'Mathematics', 'Medical', 'Mystery & Detective', 'Nonfiction', 'Poetry', 'Political Science', 'Psychology', 'Religion & Spirituality', 'Science', 'Science Fiction & Fantasy', 'Self-Help', 'Sports & Outdoors', 'Study Aids', 'Travel'
+        ];
         $book = Books::find($id);
-        return view('components.crud.Books.edit-book', compact('book'));
+        return view('components.crud.Books.edit-book', compact('book' , 'categories'));
     }
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, $id)
-    {
-        $rules = [
-            'title'          => 'required|max:255',
-            'subtitle'       => 'required|max:255',
-            'authors'        => 'required|max:255',
-            'description'    => 'required|max:1000',
-            'categories'     => 'required|max:255',
-            'published_date' => 'required|date',
-            'page_count'     => 'required|numeric',
-            'thumbnail'      => 'required|max:255',
-            'identifier'     => 'required|max:255',
-        ];
-    
-        // Realiza la validación de los datos de la solicitud
-        $datos = $request->validate($rules);
-    
-        $book = Books::find($id);
-        unset($datos['_token']);
-        $book->update($datos);
-        return redirect()->route('admin.books.index');
-    }
+{
+    $rules = [
+        'title'          => 'required|string|max:255',
+        'subtitle'       => 'required|string|max:255',
+        'authors'        => 'required|string|max:255',
+        'description'    => 'required|string|max:1000',
+        'categories'     => 'required',
+        'published_date' => 'required|date',
+        'page_count'     => 'required|string|numeric',
+        'thumbnail'      => 'required|string|max:255',
+        'identifier'     => 'required|string|max:255',
+    ];
+
+    // Realiza la validación de los datos de la solicitud
+    $datos = $request->validate($rules);
+
+    // Obtiene las categorías seleccionadas y las convierte en una cadena separada por comas
+    $selectedCategories = implode(',', $request->input('categories', []));
+
+    // Obtiene todos los datos de la solicitud
+    $datos = $request->all();
+    // Elimina el token para evitar errores
+    unset($datos['_token']);
+
+    // Encuentra el libro en la base de datos y actualiza los campos
+    $book = Books::find($id);
+    $book->title = $request->input('title');
+    $book->subtitle = $request->input('subtitle');
+    $book->authors = $request->input('authors');
+    $book->description = $request->input('description');
+    $book->categories = json_encode($selectedCategories);
+    $book->published_date = $request->input('published_date');
+    $book->page_count = $request->input('page_count');
+    $book->thumbnail = $request->input('thumbnail');
+    $book->identifier = $request->input('identifier');
+    $book->save();
+
+    // Redirige al usuario a la página de administración de libros
+    return redirect()->route('admin.books.index');
+}
+
     
 
     /**

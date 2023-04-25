@@ -11,11 +11,9 @@
 </head>
 <body>
     <x-mycomp.navbar-full/>
+    <x-mycomp.floating-box/>
     @yield('content')
     <x-mycomp.footer/>
     @livewireScripts
 </body>
 </html> 
-{{-- <x-mycomp.floating-box/>
-<x-mycomp.books-carousel  :books="$books"/>
-<x-mycomp.main-books :books="$books"/> --}}

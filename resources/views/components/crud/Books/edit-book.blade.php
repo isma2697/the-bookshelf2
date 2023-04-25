@@ -34,13 +34,20 @@
                     <div><strong>{{$message}}</strong></div>
                 @enderror
             </div>
-            <div class="edit-book__inputs__input">
-                <label for="categories">Categoria</label>
-                <input type="text" name="categories" id="categories" value="{{$book->categories}}">
-                 @error('categories')
-                    <div><strong>{{$message}}</strong></div>
-                @enderror
+            <div class="form-group">
+                <label for="categories">Categorías</label>
+                <select name="categories[]" id="categories" class="form-control" multiple>
+                    @php
+                        $selectedCategories = explode(',', $book->categories);
+                    @endphp
+                    @foreach($categories as $category)
+                        <option value="{{ $category }}" {{ in_array($category, $selectedCategories) ? 'selected' : '' }}>
+                            {{ $category }}
+                        </option>
+                    @endforeach
+                </select>
             </div>
+            
             <div class="edit-book__inputs__input">
                 <label for="published_date">Fecha de publicacion</label>
                 <input type="date" name="published_date" id="published_date" value="{{$book->published_date}}">

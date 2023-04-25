@@ -32,4 +32,10 @@
  
     php artisan test --filter BooksControllerTest
 
+
+
+
+    run npm intall alpinejs     para panel user
+    
+
     

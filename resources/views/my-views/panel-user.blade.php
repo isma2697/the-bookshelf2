@@ -1,6 +1,7 @@
 @extends('layouts.myapp')
 
 @section('content')
+
 <div class="container">
     <h1>Perfil de usuario</h1>
     <h2>{{ Auth::user()->name }}</h2>

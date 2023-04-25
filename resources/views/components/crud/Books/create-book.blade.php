@@ -33,12 +33,13 @@
                     <div><strong>{{$message}}</strong></div>
                 @enderror
             </div>
-            <div class="create-book__form__inputs__input">
-                <label for="categories">Categoria</label>
-                <input type="text" name="categories" id="categories" value="{{old('categories')}}">
-                @error('title')
-                    <div><strong>{{$message}}</strong></div>
-                @enderror
+            <div class="form-group">
+                <label for="categories">Categorías</label>
+                <select name="categories[]" id="categories" class="form-control" multiple>
+                    @foreach($categories as $category)
+                        <option value="{{ $category }}">{{ $category }}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="create-book__form__inputs__input">
                 <label for="published_date">Fecha de publicacion</label>
