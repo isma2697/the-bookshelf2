@@ -56,9 +56,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get("/panel-control", [UsersController::class, 'panelControl'])->name("admin.panel-control");
 
     // Rutas para el perfil de usuario
-    Route::get('/profile/likes', function () {
-        return view('my-views.panel-user');
-    })->middleware(['auth'])->name('profile.likes');
+    Route::get('/profile/{section}', [UsersController::class, 'sections'])->name('profile.likes');
     
 });
 

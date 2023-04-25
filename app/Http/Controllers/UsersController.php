@@ -148,4 +148,10 @@ class UsersController extends Controller
         $pdf =Pdf::loadView("components.crud.Users.listado-users", compact('users'));
         return $pdf->stream('listado.pdf');
     }
+
+    public function sections($section = null)
+    {
+        return view('my-views.panel-user', compact('section'));
+    }
+
 }

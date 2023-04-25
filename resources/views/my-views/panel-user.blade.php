@@ -8,6 +8,6 @@
     <p>{{ Auth::user()->email }}</p>
     <hr>
     <h3>Mis libros</h3>
-    <livewire:book-likes-component  />
+    <livewire:book-likes-component :section="$section" />
 </div>
 @endsection
