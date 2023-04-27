@@ -9,12 +9,24 @@
 
         <div class="footer-social">
             <ul>
-                <li><img src="{{asset('svg/instagram.svg')}}" alt="instagram"></li>
-                <li><img src="{{asset('svg/twitter-logo.svg')}}" alt="twitter-logo"></li>
-                <li><img src="{{asset('svg/github-logo.svg')}}" alt="github-logo"></li>
-                <li><img src="{{asset('svg/whatsapp-logo.svg')}}" alt="whatsapp-logo"></li>
-                <li><img src="{{asset('svg/linked.svg')}}" alt="linked"></li>
-                <li><img src="{{asset('svg/facebook-logo.svg')}}" alt="facebook-logo"></li>
+                <li>
+                    <img src="{{asset('svg/instagram.svg')}}" alt="instagram">
+                </li>
+                <li>
+                    <a href=""><img src="{{asset('svg/twitter-logo.svg')}}" alt="twitter-logo"></a>
+                </li>
+                <li>
+                    <a href=""><img src="{{asset('svg/github-logo.svg')}}" alt="github-logo"></a>
+                </li>
+                <li>
+                    <a href=""><img src="{{asset('svg/whatsapp-logo.svg')}}" alt="whatsapp-logo"></a>
+                </li>
+                <li>
+                    <a href=""><img src="{{asset('svg/linked.svg')}}" alt="linked"></a>
+                </li>
+                <li>
+                    <a href=""><img src="{{asset('svg/facebook-logo.svg')}}" alt="facebook-logo"></a>
+                </li>
             </ul>
         </div>
     </div>
@@ -33,9 +45,9 @@
         <div class="second">
             <p>Terms of Service</p>
             <p>|</p>
-            <p>+34638388371</p>
+            <p><a href="tel:+34638388370">+34638388371</a></p>
             <p>|</p>
-            <p>info@thebookshlf.es</p>
+            <p><a href="mailto:info@thebookshlf.es">info@thebookshlf.es</a></p>
         </div>
 
     </div>

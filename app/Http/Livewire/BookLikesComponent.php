@@ -27,7 +27,8 @@ class BookLikesComponent extends Component
         $this->bookmarks = Bookmark::where('users_id', $userId)->get();
         $this->reservations = Reserve::where('users_id', $userId)->get();
         $this->loans = Loan::where('users_id', $userId)->get();
-     }
+        // dd($this->likes, $this->bookmarks, $this->reservations, $this->loans);
+    }
     
 
 
