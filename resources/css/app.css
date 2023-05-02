@@ -12,6 +12,7 @@
 @import url('menu-years.css');
 @import url('menu-category.css');
 @import url('comentarios.css');
+@import url('panel-control.css');
 @import url('footer.css');
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
@@ -24,7 +25,9 @@
 }
 body{
     /* background-color: rgb(161, 252, 252); */
+    background-color: #cfc2bc46;
     overflow-x: hidden;
+
 }
 
 body::-webkit-scrollbar{

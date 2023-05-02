@@ -1,0 +1,19 @@
+.panel-control{
+    width: 80%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2em;
+}
+.panel-control .control{
+    width: 85%;
+    height: 35vh;
+    margin: auto auto;
+    background-color: #f4f5f7;
+    border-radius: 0.5em;
+    box-shadow: -1px 1px 50px 1px rgba(87, 85, 85, 0.301);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

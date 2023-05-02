@@ -2,11 +2,10 @@
     @if (Route::has('login'))
         <div>
             @auth
-                {{-- <a href="{{ url('/dashboard') }}" class="login-user">Dashboard</a> --}}
-                
-                <img src="{{ asset('storage/svg/user.svg') }}" alt="icon-user" id="icon-user"> 
+                @if (auth()->check())
+                    <img src="{{ auth()->user()->profile_photo_url }}" alt="{{ auth()->user()->name }}" class="rounded-full h-20 w-20 object-cover" id="icon-user">
+                @endif                
             @else
-                {{-- <a href="{{ route('login') }}" class="login-user">Log in</a> --}}
                 <div class="inline-flex items-center gap-2 list-none lg:ml-auto">
                     <a href="{{ route('login') }}"  class="block px-4 py-2 mt-2 text-sm text-gray-500 md:mt-0 hover:text-blue-600 focus:outline-none focus:shadow-outline">
                         Sign in
@@ -15,7 +14,6 @@
                         Sign up
                     </a>
                 </div>
-                
             @endauth
         </div>
     @endif

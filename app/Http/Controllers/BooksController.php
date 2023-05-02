@@ -52,11 +52,12 @@ class BooksController extends Controller
     }
 
    public function popular(){
-    $books = Books::leftJoin('likes', 'books.id', '=', 'likes.books_id')
-                ->select('books.*', DB::raw('COUNT(likes.id) as likes_count'))
-                ->groupBy('books.id')
-                ->orderBy('likes_count', 'DESC')
-                ->paginate(45);
+       //esta consulta solo funcion en mysql ya aplica la agregacion de la tabla likes
+       $books = Books::leftJoin('likes', 'books.id', '=', 'likes.books_id')
+                   ->select('books.*', DB::raw('COUNT(likes.id) as likes_count'))
+                   ->groupBy('books.id', 'books.title', 'books.subtitle', 'books.published_date', 'books.page_count', 'books.description', 'books.authors', 'books.categories', 'books.thumbnail', 'books.identifier', 'books.created_at', 'books.updated_at') // agregar books.updated_at a la cláusula GROUP BY
+                   ->orderBy('likes_count', 'DESC')
+                   ->paginate(45);
 
     $books = $this->formatData($books);
     // dd($books);

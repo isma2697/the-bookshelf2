@@ -7,6 +7,7 @@
             </a>
         </div>
         <x-mycomp.user-session/>
+        
     </div>
 
     <div class="navbar-options navbar">

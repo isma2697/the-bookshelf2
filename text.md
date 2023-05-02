@@ -39,3 +39,59 @@
     
 
     
+    tabla users:
+    id 
+    name
+    surname
+    dni
+    phone 
+    is_admin
+    email
+    password
+
+    tabla books:
+    id 
+    title
+    subtitle
+    publish_date
+    page_count
+    description
+    authors
+    categories
+    thumbnail
+    identifier
+
+
+    tabla loans:
+    id
+    users_id
+    books_id
+    loan_date
+    due_date
+    return_data
+
+    tabla likes:
+    id 
+    users_id 
+    book_id
+
+    tabla comments:
+    id
+    users_id
+    book_id
+    comments
+
+    tabla bookmarks:
+    id
+    users_id
+    book_id
+
+    tablas reservas:
+    id
+    users_id
+    book_id
+    fecha_reserva
+    fecha_vencimientos
+
+
+
