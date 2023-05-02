@@ -1,57 +1,63 @@
-
+<head>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+</head>
 <div class="edit-user">
     <form action="{{route('admin.users.update', $user)}}" method="POST">
         @csrf
         @method('PUT')
-        <div class="form-group">
-            <label for="name">Nombre</label>
-            <input type="text" name="name" id="name" class="form-control" placeholder="Nombre" aria-describedby="helpId" value="{{$user->name}}">
-            @error('name')
-                <div class="invalid-feedback">
-                    <strong>{{$message}}</strong>
+        <div class="bg-white px-10 py-10 mx-96 my-20 border-2 rounded-lg shadow-lg">
+            <div class="edit-user__title mb-6">
+                <h1 class="title-crud">Editar usuario</h1>
+            </div>
+            <div class="edit-user__inputs">
+                <div class="mb-4">
+                    <label for="name" class="block font-medium text-gray-700 mb-2">Nombre</label>
+                    <input type="text" name="name" id="name" value="{{$user->name}}" class="form-input rounded-md shadow-sm w-full" placeholder="Nombre">
+                    @error('name')
+                        <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
+                    @enderror
                 </div>
-            @enderror
-        </div>
-        <div class="form-group">
-            <label for="surname">Apellido</label>
-            <input type="text" name="surname" id="surname" class="form-control" placeholder="Apellido" aria-describedby="helpId" value="{{$user->surname}}">
-            @error('surname')
-                <div class="invalid-feedback">
-                    <strong>{{$message}}</strong>
+                <div class="mb-4">
+                    <label for="surname" class="block font-medium text-gray-700 mb-2">Apellido</label>
+                    <input type="text" name="surname" id="surname" value="{{$user->surname}}" class="form-input rounded-md shadow-sm w-full" placeholder="Apellido">
+                    @error('surname')
+                        <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
+                    @enderror
                 </div>
-            @enderror
-        </div>
-        <div class="form-group">
-            <label for="dni">DNI</label>
-            <input type="text" name="dni" id="dni" class="form-control" placeholder="DNI" aria-describedby="helpId" value="{{$user->dni}}">
-            @error('dni')
-                <div class="invalid-feedback">
-                    <strong>{{$message}}</strong>
+                <div class="mb-4">
+                    <label for="dni" class="block font-medium text-gray-700 mb-2">DNI</label>
+                    <input type="text" name="dni" id="dni" value="{{$user->dni}}" class="form-input rounded-md shadow-sm w-full" placeholder="DNI">
+                    @error('dni')
+                        <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
+                    @enderror
                 </div>
-            @enderror
-        </div>
-        <div class="form-group">
-            <label for="phone">Telefono</label>
-            <input type="text" name="phone" id="phone" class="form-control" placeholder="Telefono" aria-describedby="helpId" value="{{$user->phone}}">
-            @error('phone')
-                <div class="invalid-feedback">
-                    <strong>{{$message}}</strong>
+                <div class="mb-4">
+                    <label for="phone" class="block font-medium text-gray-700 mb-2">Teléfono</label>
+                    <input type="text" name="phone" id="phone" value="{{$user->phone}}" class="form-input rounded-md shadow-sm w-full" placeholder="Teléfono">
+                    @error('phone')
+                        <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
+                    @enderror
                 </div>
-            @enderror
-        </div>
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="text" name="email" id="email" class="form-control" placeholder="Email" aria-describedby="helpId" value="{{$user->email}}">
-            @error('email')
-                <div class="invalid-feedback">
-                    <strong>{{$message}}</strong>
+                <div class="mb-4">
+                    <label for="email" class="block font-medium text-gray-700 mb-2">Email</label>
+                    <input type="text" name="email" id="email" value="{{$user->email}}" class="form-input rounded-md shadow-sm w-full" placeholder="Email">
+                    @error('email')
+                        <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
+                    @enderror
                 </div>
-            @enderror
+                <div class="mb-4">
+                    <label for="is_admin" class="block font-medium text-gray-700 mb-2">Admin</label>
+                    <input type="checkbox" name="is_admin" id="is_admin" value="1" class="form-checkbox rounded-md shadow-sm" {{ boolval($user->is_admin) ? 'checked' : '' }}>
+                </div>
+                <div class="flex items-center justify-between mt-8">
+                    <a href="{{route('admin.users.index')}}" class="inline-flex items-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-700 active:bg-red-900 focus:outline-none focus:border-red-900 focus:ring focus:ring-red-300 disabled:opacity-25 transition">
+                        Cancelar
+                    </a>
+                    <button type="submit" class="py-2 px-4 bg-blue-600 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 text-white w-1/2 transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg">
+                        Guardar
+                    </button>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="is_admin">Admin</label>
-            <input type="checkbox" name="is_admin" id="is_admin" class="form-control" placeholder="Admin" aria-describedby="helpId" {{ boolval($user->is_admin) ? 'checked' : '' }}>
-        <button type="submit" class="btn btn-primary">Actualizar usuario</button>
-        <a href="{{route('admin.users.index')}}" class="btn btn-danger">Cancelar</a>
-    </form>    
+    </form>
 </div>

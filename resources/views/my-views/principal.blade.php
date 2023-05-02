@@ -4,5 +4,5 @@
     <x-mycomp.floating-box/>
     <x-mycomp.books-carousel :books="$books"/>
     <x-mycomp.main-books :books="$books" title="Libros" />
-
+   
 @endsection
