@@ -17,3 +17,60 @@
     justify-content: center;
     align-items: center;
 }
+
+.control>h3{
+    font-size: 2.5em;
+    font-weight: 600;
+    color: #303030;
+    margin-bottom: 1em;
+}
+.control>p{
+    font-size: 1em;
+    font-weight: 400;
+    color: #747474;
+    margin-left: 2.5em;
+    margin-right: 2.5em;
+    margin-bottom: 2.5em;
+}
+
+.btn-panel:hover{
+    transform: translate(0px, -2px);
+    box-shadow: -1px 1px 50px 1px rgba(8, 13, 82, 0.151);
+
+}
+
+/* Media query para max-width de 1000px */
+@media screen and (max-width: 1000px) {
+    .panel-control{
+        grid-template-columns: 1fr;
+    }
+    .panel-control .control{
+        width: 100%;
+        height: auto;
+        margin: 1em auto;
+    }
+    .control>h3{
+        font-size: 2em;
+    }
+    .control>p{
+        margin-left: 1.5em;
+        margin-right: 1.5em;
+        margin-bottom: 1.5em;
+    }
+}
+
+/* Media query para max-width de 500px */
+@media screen and (max-width: 500px) {
+    .panel-control{
+        width: 100%;
+    }
+    .control>h3{
+        font-size: 1.5em;
+    }
+    .control>p{
+        font-size: 0.9em;
+        margin-left: 1em;
+        margin-right: 1em;
+        margin-bottom: 1em;
+    }
+} 

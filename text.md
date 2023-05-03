@@ -94,4 +94,7 @@
     fecha_vencimientos
 
 
+    no olvidar los iconos de los usuarios 
+
+    problema en en la tabla de books en autores "problema de json "
 

@@ -1,0 +1,42 @@
+.container-user>h1{
+    font-size: 2.5em;
+    color: rgba(37, 37, 37, 0.815);
+    text-align: center;
+    margin-top: 1em;
+}
+
+.container-user{
+    width: 100%; 
+    margin: 0 auto;   
+}
+
+.content-books{
+    min-height: 40em;
+}
+.content-books>div>div>p{
+    font-size: 2.3em;
+    color: rgba(78, 121, 139, 0.815);
+    position: absolute;
+    top: 62%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+
+.content-books>div>div>ul{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.content-books>div>div>ul>li{
+    width: 22em;
+    background-color: white;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+

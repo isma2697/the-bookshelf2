@@ -2,12 +2,9 @@
 
 @section('content')
 
-<div class="container">
-    <h1>Perfil de usuario</h1>
-    <h2>{{ Auth::user()->name }}</h2>
-    <p>{{ Auth::user()->email }}</p>
+<div class="container container-user">
+    <h1>Mis libros</h1>
     <hr>
-    <h3>Mis libros</h3>
-    <livewire:book-likes-component :section="$section" />
+    <livewire:book-likes-component :section="$section"/>
 </div>
 @endsection

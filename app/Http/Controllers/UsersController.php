@@ -151,6 +151,7 @@ class UsersController extends Controller
 
     public function sections($section = null)
     {
+        
         return view('my-views.panel-user', compact('section'));
     }
 
