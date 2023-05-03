@@ -6,10 +6,12 @@ $liked = $book->likes->contains('users_id', auth()->id());
     @csrf
     <button type="submit" class="py-2 px-4">
         @if ($liked)
-        <img src="{{ asset('svg/heart.svg') }}" alt="heart">
+        <img class=" h-10 " src="{{ asset('svg/heart.svg') }}" alt="heart">
         @else
-        <img src="{{ asset('svg/heartB.svg') }}" alt="heartB">
+        <img class=" h-10 " src="{{ asset('svg/heartB.svg') }}" alt="heartB">
         @endif
-        {{$book->likes->count()}}
+        <p class="font-light text-sm">
+            {{$book->likes->count()}}
+        </p>
     </button>
 </form>

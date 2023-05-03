@@ -1,8 +1,10 @@
 <div class="book-info-container">
     <div class="book-img">
         <img class="card-img " src="{{ $book->thumbnail}}" alt="{{ $book->title }}">
-        <x-mycomp.likes :book="$book"/>
-        <x-mycomp.bookmark-button :book="$book"/>
+        <div class="flex flex-row justify-between px-2 mt-2">
+            <x-mycomp.likes :book="$book"/>
+            <x-mycomp.bookmark-button :book="$book"/>
+        </div>
         <x-mycomp.reserve :book="$book"/>
 
     </div>

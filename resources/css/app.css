@@ -25,9 +25,9 @@
 }
 body{
     /* background-color: rgb(161, 252, 252); */
+    height: 100vh;
     background-color: #ffffff27;
     overflow-x: hidden;
-
 }
 
 body::-webkit-scrollbar{

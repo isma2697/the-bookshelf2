@@ -7,10 +7,9 @@ $bookmarked = DB::table('bookmarks')->where('users_id', auth()->id())->where('bo
     @csrf
     <button type="submit" class="py-2 px-4">
         @if ($bookmarked)
-            <img src="{{ asset('svg/saved.svg') }}" alt="save(1)">
+            <img class=" h-10" src="{{ asset('svg/saved.svg') }}" alt="save(1)">
         @else
-            <img src="{{ asset('svg/save.svg') }}" alt="save">
+            <img class=" h-10" src="{{ asset('svg/save.svg') }}" alt="save">
         @endif
-        {{ $bookmarked ? 'Eliminar marcador' : 'Guardar marcador' }}
     </button>
 </form>

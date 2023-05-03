@@ -35,6 +35,14 @@
 
 
 
+@media (max-width: 500px){
+    .section-h1{
+        display: none;
+    }
+    .section-carousel{
+        display: none;
+    }
+}
 
 
 
