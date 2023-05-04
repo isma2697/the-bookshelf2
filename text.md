@@ -27,9 +27,7 @@
 
     tests 3
     php artisan test --filter BooksSeederTest
-
     php artisan test --filter ApiBookControllerTest
- 
     php artisan test --filter BooksControllerTest
 
 
@@ -93,8 +91,7 @@
     fecha_reserva
     fecha_vencimientos
 
+    //falta las pruebas de test unitarias.
+    
 
-    no olvidar los iconos de los usuarios 
-
-    problema en en la tabla de books en autores "problema de json "
 

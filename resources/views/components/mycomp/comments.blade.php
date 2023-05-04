@@ -12,7 +12,7 @@
           @foreach($comments as $comment)
             <div class="comment">
               <div class="comment-info">
-                <img src="{{ auth()->user()->profile_photo_url }}" alt="{{ auth()->user()->name }}" class="comment-img rounded-full h-20 w-20 object-cover" id="icon-user">
+                <img src="{{ $comment->users->profile_photo_url }}" alt="{{ $comment->users->name }}" class="comment-img rounded-full h-20 w-20 object-cover" id="icon-user">
                 <h5>{{ $comment->users->name }}</h5>
                 <small>{{ $comment->created_at->diffForHumans() }}</small>
               </div>
