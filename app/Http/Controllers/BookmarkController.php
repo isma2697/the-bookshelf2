@@ -8,16 +8,16 @@ use Illuminate\Http\Request;
 class BookmarkController extends Controller
 {
 
+    //control permissions
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-   
+    //What this function does is add or remove a user's bookmark
     public function toggle(Request $request, $bookId)
     {
         $user_id = auth()->id();
-
         $bookmark = Bookmark::where('users_id', $user_id)->where('books_id', $bookId)->first();
 
         if ($bookmark) {
@@ -30,11 +30,8 @@ class BookmarkController extends Controller
                 'books_id' => $bookId,
             ]);
         }
-
         return back();
     }
-
-
 
     /**
      * Display a listing of the resource.

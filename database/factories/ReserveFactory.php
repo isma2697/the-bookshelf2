@@ -15,6 +15,7 @@ class ReserveFactory extends Factory
 {
     protected $model = Reserve::class;
 
+    // The definition method defines how the reserve objects should be created.
     public function definition()
     {
         return [

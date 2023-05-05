@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class ApiBookController extends Controller
 {
-
+    //This function is to collect only the necessary data from the API
     public function newjson($books){
         $customData = [];
         foreach ($books->items as $book) {
@@ -32,8 +32,6 @@ class ApiBookController extends Controller
         $response = $client->get('https://www.googleapis.com/books/v1/volumes?q=Classics:&maxResults=40');
         $books = json_decode($response->getBody()->getContents());
         $customData = $this->newjson($books);
-    
-        // dd($customData);
         return $customData;
     }
 
@@ -43,10 +41,6 @@ class ApiBookController extends Controller
         $response = $client->get('https://www.googleapis.com/books/v1/volumes?q='.$category.':&maxResults=40');
         $books = json_decode($response->getBody()->getContents());
         $customData = $this->newjson($books);
-    
-        // dd($customData);
         return $customData;
     }
-    
-    
 }

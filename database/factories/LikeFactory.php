@@ -17,6 +17,7 @@ class LikeFactory extends Factory
 {
     protected $model = Like::class;
 
+    // The definition method defines how the Like objects should be created.
     public function definition()
     {
         return [

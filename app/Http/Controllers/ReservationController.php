@@ -25,14 +25,11 @@ class ReservationController extends Controller
     }
 
 
-    //
+    //The "toggle" function creates or deletes a book reservation for an authenticated user and redirects the user to the previous page.
     public function toggle($bookId)
     {
         $user_id = auth()->id();
         $book = Books::find($bookId);
-
-
-        // dd($book);
         if (!$book) {
             return back()->withErrors(['No se encontró el libro.']);
         }
@@ -43,7 +40,6 @@ class ReservationController extends Controller
         } else {
             $fecha_reserva = Carbon::now();
             $fecha_vencimiento = Carbon::now()->addDays(7);
-
             Reserve::create([
                 'users_id' => $user_id,
                 'books_id' => $bookId,
@@ -51,7 +47,6 @@ class ReservationController extends Controller
                 'fecha_vencimiento' => $fecha_vencimiento,
             ]);  
         }
-
         return back();
     }
 
@@ -91,10 +86,11 @@ class ReservationController extends Controller
     {
         //
     }
+
+    //this function is confirmation of the reservation and the creation of the loan.
     public function confirmReservation($reservationId)
     {
         $reservation = Reserve::find($reservationId);
-    
         if (!$reservation) {
             return back()->withErrors(['No se encontró la reserva.']);
         }
@@ -103,7 +99,6 @@ class ReservationController extends Controller
         $book_id = $reservation->books_id;
         $book = Books::find($book_id);
         
-    
         if (!$book) {
             return back()->withErrors(['No se encontró el libro.']);
         }
@@ -115,13 +110,12 @@ class ReservationController extends Controller
             'return_date' => Carbon::now()->addDays(14),
         ]);
     
-        // Elimina la reserva después de crear el préstamo
+        // Delete the reservation after creating the loan
         $reservation->delete();
-    
         return back()->with('success', 'La reserva ha sido confirmada y se ha creado un préstamo.');
     }
     
-
+    // function to display in pdf a record of all the books in the database
     public function listadoPdf(){
         $reservations = Reserve::all();
         $pdf =Pdf::loadView("components.crud.Reservations.listado-reserve", compact('reservations'));

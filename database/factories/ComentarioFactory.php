@@ -17,6 +17,7 @@ class ComentarioFactory extends Factory
 {
     protected $model = Comentario::class;
 
+    // The definition method defines how the Comentario objects should be created.
     public function definition()
     {
         return [

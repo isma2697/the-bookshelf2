@@ -12,13 +12,12 @@ class UsersController extends Controller
 {
     public function __construct()
     {
-        // $this->middleware('auth')->only(['function1', 'function2', 'function3']);
         $this->middleware(function ($request, $next) {
             $user = auth()->user();
             if ($user && $user->is_admin) {
-                return $next($request); // Si es un usuario autenticado y administrador, continúa con la solicitud
+                return $next($request); // If you are an authenticated user and administrator, continue with the request
             }
-            abort(403); // Si no es administrador, muestra un error 403 de acceso no autorizado
+            abort(403); // If you are not an administrator, it shows a 403 unauthorized access error
         })->only(['index', 'create', 'store', 'edit', 'update', 'destroy', 'listadoPdf', 'panelControl']);
     }
 
@@ -44,7 +43,7 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        // Define las reglas de validación para cada campo del formulario
+        // Define validation rules for each form field
         $rules = [
             'name' => 'required|string|max:255',
             'surname' => 'required|string|max:255',
@@ -55,18 +54,14 @@ class UsersController extends Controller
             'is_admin' => '',
         ];
 
-        // Realiza la validación de los datos de la solicitud
+        // Performs the validation of the request data
         $datos = $request->validate($rules);
-
-        // dd($datos);
-       
         unset($datos['_token']);
         if (array_key_exists('is_admin', $datos)) {
             $datos['is_admin'] = boolval($datos['is_admin']);
         } else {
-            $datos['is_admin'] = false; // Por defecto, no es administrador
+            $datos['is_admin'] = false;
         }
-        // dd($datos);
         Users::create($datos);
         return redirect()->route('admin.users.index');
     }
@@ -93,7 +88,7 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // Define las reglas de validación para cada campo del formulario
+        // Define validation rules for each form field
         $rules = [
             'name' => 'required|string|max:255',
             'surname' => 'required|string|max:255',
@@ -103,20 +98,19 @@ class UsersController extends Controller
             'is_admin' => '',
         ];
 
-        // Realiza la validación de los datos de la solicitud
+        // Performs the validation of the request data
         $datos = $request->validate($rules);
 
-        // Busca el usuario que se va a actualizar
+        // Find the user to update
         $user = Users::find($id);
 
         if (array_key_exists('is_admin', $datos)) {
             $datos['is_admin'] = boolval($datos['is_admin']);
         } else {
-            $datos['is_admin'] = false; // Por defecto, no es administrador
+            $datos['is_admin'] = false; // By default, it is not an administrator
         }
-        // dd($datos);
 
-        // Actualiza los datos del usuario
+        // Update user data
         $user->update([
             'name' => $datos['name'],
             'surname' => $datos['surname'],
@@ -126,7 +120,7 @@ class UsersController extends Controller
             'is_admin' => boolval($datos['is_admin']),
         ]);
 
-        // Redirige al usuario a la lista de usuarios
+        // Redirect user to user list
         return redirect()->route('admin.users.index')->with('success', 'Usuario actualizado exitosamente');
     }
 
@@ -140,19 +134,23 @@ class UsersController extends Controller
     }
 
     public function panelControl(){
+        // This function returns a view called "panel-control".
         return view('my-views.panel-control');
     }
-
+    
     public function listadoPdf(){
+        // This function loads all users and generates a PDF file with them using a view called "listado-users".
         $users = Users::all();
-        $pdf =Pdf::loadView("components.crud.Users.listado-users", compact('users'));
+        $pdf = Pdf::loadView("components.crud.Users.listado-users", compact('users'));
+        // The generated PDF is streamed and returned with the filename "listado.pdf".
         return $pdf->stream('listado.pdf');
     }
-
+    
     public function sections($section = null)
     {
-        
+        // This function returns a view called "panel-user" and passes in a variable called "section", which may be null or contain a value.
         return view('my-views.panel-user', compact('section'));
     }
+    
 
 }

@@ -22,22 +22,21 @@ class BookmarkFactory extends Factory
 
     public function definition()
     {
-        // Obtén un usuario aleatorio
+        // Get a random user
         $user = User::inRandomOrder()->first();
 
-        // Encuentra un libro que el usuario no haya marcado
+        // Find a book that the user hasn't bookmarked
         $book = Books::whereNotIn('id', function ($query) use ($user) {
             $query->select('books_id')
                 ->from('bookmarks')
                 ->where('users_id', $user->id);
         })->inRandomOrder()->first();
 
-        // Verifica si el registro ya existe en la tabla 'bookmarks'
+        // Check if the record already exists in the 'bookmarks' table
         $existingBookmark = Bookmark::where('users_id', $user->id)->where('books_id', $book->id)->exists();
 
-
         if ($existingBookmark) {
-            // Si el registro ya existe, no hagas nada
+            // If the record already exists, do nothing
             return [];
         } else {
             return [
@@ -45,24 +44,5 @@ class BookmarkFactory extends Factory
                 'books_id' => $book->id,
             ];
         }
-
-
-
-
-
-
-        // if ($existingBookmark) {
-        //     // Si el registro ya existe, puede generar un nuevo registro o ignorar la inserción
-        //     return [
-        //         'users_id' => null,
-        //         'books_id' => null,
-        //     ];
-        // } else {
-        //     return [
-        //         'users_id' => $user->id,
-        //         'books_id' => $book->id,
-        //     ];
-        // }
     }
-
 }

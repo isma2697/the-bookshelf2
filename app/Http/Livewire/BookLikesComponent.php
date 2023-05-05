@@ -11,15 +11,19 @@ use Livewire\Component;
 
 class BookLikesComponent extends Component
 {
+    // This method returns a view called "book-likes-component".
     public function render()
     {
         return view('livewire.book-likes-component');
     }
+
+    // These are public properties that will be available to the view.
     public $likes = [];
     public $bookmarks = [];
     public $reservations = [];
     public $loans = [];
     
+    // This method is called when the component is mounted, and retrieves the likes, bookmarks, reservations, and loans for the authenticated user.
     public function mount()
     {
         $userId = Auth::user()->id;
@@ -27,10 +31,6 @@ class BookLikesComponent extends Component
         $this->bookmarks = Bookmark::where('users_id', $userId)->get();
         $this->reservations = Reserve::where('users_id', $userId)->get();
         $this->loans = Loan::where('users_id', $userId)->get();
-        // dd($this->likes, $this->bookmarks, $this->reservations, $this->loans);
     }
-    
-
-
-
 }
+

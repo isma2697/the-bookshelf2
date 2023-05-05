@@ -18,22 +18,9 @@ class UserFactory extends Factory
     protected $model = User::class;
 
     /**
-     * Define the model's default state.
-     * public function definition()
-        *{
-        *    return [
-        *        'name' => $this->faker->name,
-        *        'surname' => $this->faker->lastName,
-        *        'dni' => $this->faker->unique()->numerify('########A'),
-        *        'phone' => $this->faker->phoneNumber,
-        *        'rol' => 'user',
-        *        'email' => $this->faker->unique()->safeEmail,
-        *        'email_verified_at' => now(),
-        *        'password' => bcrypt('password'), // password
-        *        'remember_token' => Str::random(10),
-        *    ];
-        *}
-     * @return array<string, mixed>
+     * Indicate that the user is an admin.
+     *
+     * @return $this
      */
     public function definition(): array
     {

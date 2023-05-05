@@ -11,18 +11,16 @@ class BooksController extends Controller
 {   
     public function __construct()
     {
-        // $this->middleware('auth')->only(['function1', 'function2', 'function3']);
         $this->middleware(function ($request, $next) {
             $user = auth()->user();
             if ($user && $user->is_admin) {
-                return $next($request); // Si es un usuario autenticado y administrador, continúa con la solicitud
+                return $next($request); // If you are an authenticated user and administrator, continue with the request
             }
-            abort(403); // Si no es administrador, muestra un error 403 de acceso no autorizado
+            abort(403); // If you are not an administrator, it shows a 403 unauthorized access error
         })->only(['index', 'create', 'store', 'edit', 'update', 'destroy', 'listadoPdf']);
     }
 
- 
-    
+    //This function change the format  of the data to show it in the view
     private function formatData($books) {
         foreach ($books as $book) {
             
@@ -38,6 +36,7 @@ class BooksController extends Controller
         }
         return $books;
     }
+
     /**
      * Display a listing of the resource.
      */
@@ -51,21 +50,20 @@ class BooksController extends Controller
         return view('my-views.admin-books', compact('books'));
     }
 
-   public function popular(){
-       //esta consulta solo funcion en mysql ya aplica la agregacion de la tabla likes
+    //function to display the most popular books
+    public function popular()
+    {
+       //This query only worked in mysql and it already applies the aggregation of the likes table
        $books = Books::leftJoin('likes', 'books.id', '=', 'likes.books_id')
                    ->select('books.*', DB::raw('COUNT(likes.id) as likes_count'))
                    ->groupBy('books.id', 'books.title', 'books.subtitle', 'books.published_date', 'books.page_count', 'books.description', 'books.authors', 'books.categories', 'books.thumbnail', 'books.identifier', 'books.created_at', 'books.updated_at') // agregar books.updated_at a la cláusula GROUP BY
                    ->orderBy('likes_count', 'DESC')
                    ->paginate(45);
+        $books = $this->formatData($books);
+        return view('my-views.most-popular', compact('books'));
+    }
 
-    $books = $this->formatData($books);
-    // dd($books);
-    return view('my-views.most-popular', compact('books'));
-}
-
-    
-
+    //function to display the most recent books
     public function principal(){
         $books = Books::paginate(40);
         $books = $this->formatData($books);
@@ -77,7 +75,6 @@ class BooksController extends Controller
      */
     public function create()
     {
-        //
         $categories = [
             'Art', 'Biographies & Autobiographies', 'Business & Economics', "Children's Books", 'Classics', 'Comics & Graphic Novels', 'Computers & Internet', 'Cooking', 'Education', 'Entertainment', 'Fiction & Literature', 'Health, Mind & Body', 'History', 'Home & Garden', 'Horror', 'Humor', 'Foreign Language Study', 'Young Adult Fiction', 'Law', 'LGBT', 'Literary Collections', 'Mathematics', 'Medical', 'Mystery & Detective', 'Nonfiction', 'Poetry', 'Political Science', 'Psychology', 'Religion & Spirituality', 'Science', 'Science Fiction & Fantasy', 'Self-Help', 'Sports & Outdoors', 'Study Aids', 'Travel'
         ];
@@ -89,7 +86,6 @@ class BooksController extends Controller
      */
     public function store(Request $request)
     {
-        
         $rules = [
             'title'          => 'required|string|max:255',
             'subtitle'       => 'required|string|max:255',
@@ -102,15 +98,12 @@ class BooksController extends Controller
             'identifier'     => 'required|string|max:255',
         ];
 
-        // Realiza la validación de los datos de la solicitud
+        // Performs the validation of the request data
         $datos = $request->validate($rules);
-
-        //
-        
         $selectedCategories = implode(',', $request->input('categories', []));
-
         $datos = $request->all();
-        //quitar el token para que no de error
+
+        //remove token so no error
         unset($datos['_token']);
         $book = new Books;
         $book->title = $request->input('title');
@@ -133,7 +126,6 @@ class BooksController extends Controller
     {
         $books = Books::paginate(10);
         $books = $this->formatData($books);
-
         $book = Books::find($id);
         $comments = $book->comentarios ?? null;
         $comments = Comentario::where('books_id', $id)->with('users')->get();
@@ -155,8 +147,6 @@ class BooksController extends Controller
         } else {
             abort(404);
         }
-
-
     }
 
     /**
@@ -175,59 +165,57 @@ class BooksController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, $id)
-{
-    $rules = [
-        'title'          => 'required|string|max:255',
-        'subtitle'       => 'required|string|max:255',
-        'authors'        => 'required|string|max:255',
-        'description'    => 'required|string|max:1000',
-        'categories'     => 'required',
-        'published_date' => 'required|date',
-        'page_count'     => 'required|string|numeric',
-        'thumbnail'      => 'required|string|max:255',
-        'identifier'     => 'required|string|max:255',
-    ];
+    {
+        $rules = [
+            'title'          => 'required|string|max:255',
+            'subtitle'       => 'required|string|max:255',
+            'authors'        => 'required|string|max:255',
+            'description'    => 'required|string|max:1000',
+            'categories'     => 'required',
+            'published_date' => 'required|date',
+            'page_count'     => 'required|string|numeric',
+            'thumbnail'      => 'required|string|max:255',
+            'identifier'     => 'required|string|max:255',
+        ];
 
-    // Realiza la validación de los datos de la solicitud
-    $datos = $request->validate($rules);
+        // Realiza la validación de los datos de la solicitud
+        $datos = $request->validate($rules);
 
-    // Obtiene las categorías seleccionadas y las convierte en una cadena separada por comas
-    $selectedCategories = implode(',', $request->input('categories', []));
+        // Obtiene las categorías seleccionadas y las convierte en una cadena separada por comas
+        $selectedCategories = implode(',', $request->input('categories', []));
 
-    // Obtiene todos los datos de la solicitud
-    $datos = $request->all();
-    // Elimina el token para evitar errores
-    unset($datos['_token']);
+        // Obtiene todos los datos de la solicitud
+        $datos = $request->all();
+        // Elimina el token para evitar errores
+        unset($datos['_token']);
 
-    // Encuentra el libro en la base de datos y actualiza los campos
-    $book = Books::find($id);
-    $book->title = $request->input('title');
-    $book->subtitle = $request->input('subtitle');
-    $book->authors = $request->input('authors');
-    $book->description = $request->input('description');
-    $book->categories = json_encode($selectedCategories);
-    $book->published_date = $request->input('published_date');
-    $book->page_count = $request->input('page_count');
-    $book->thumbnail = $request->input('thumbnail');
-    $book->identifier = $request->input('identifier');
-    $book->save();
+        // Encuentra el libro en la base de datos y actualiza los campos
+        $book = Books::find($id);
+        $book->title = $request->input('title');
+        $book->subtitle = $request->input('subtitle');
+        $book->authors = $request->input('authors');
+        $book->description = $request->input('description');
+        $book->categories = json_encode($selectedCategories);
+        $book->published_date = $request->input('published_date');
+        $book->page_count = $request->input('page_count');
+        $book->thumbnail = $request->input('thumbnail');
+        $book->identifier = $request->input('identifier');
+        $book->save();
 
-    // Redirige al usuario a la página de administración de libros
-    return redirect()->route('admin.books.index');
-}
-
-    
+        // Redirige al usuario a la página de administración de libros
+        return redirect()->route('admin.books.index');
+    }
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy($id)
     {
-
         $libros = Books::find($id);
         $libros->delete();
     }
 
+    //function to display in pdf a record of all the books in the database
     public function listadoPdf(){
         $books = Books::all();
         $books = $this->formatData($books);
@@ -235,27 +223,28 @@ class BooksController extends Controller
         return $pdf->stream('listado.pdf');
     }
 
+    //function to add and remove a user's like
     public function toggleLike(Books $book)
-        {
-            $user_id = auth()->id();
-
-            $liked = $book->likes->contains('users_id', $user_id);
-             
-            if ($liked) {
-                $book->likes()->where('users_id', $user_id)->delete();
-            } else {
-                $book->likes()->create(['users_id' => $user_id]);
-            }
-            
-            return back();
+    {
+        $user_id = auth()->id();
+        $liked = $book->likes->contains('users_id', $user_id);
+         
+        if ($liked) {
+            $book->likes()->where('users_id', $user_id)->delete();
+        } else {
+            $book->likes()->create(['users_id' => $user_id]);
         }
+        return back();
+    }
 
+    //function shows a view of the books of a category, depending on what the user has chosen
     public function show_category($category){
         $books = Books::where('categories', 'LIKE', '%'.$category.'%')->paginate(30);
         $books = $this->formatData($books);
         return view('my-views.category', compact('books'));
     }
 
+    //function shows a view of the books of a year, depending on what the user has chosen
     public function show_years($year)
     {
         $year = (int) $year;
