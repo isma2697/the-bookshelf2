@@ -100,12 +100,15 @@
 
     error arreglar lo de la imagenes de los usuarios en el icono 
     
-    botn de books chage and btn de editd de books
+
+
+
+    tik  resesrvers crud svg
 
     el next de la pagina datable
     btn de iºedit
 
-    poner greeen  panel conntropl
+    poner bt greeen  panel conntropl
 
 
     poner recomendado en principal  
