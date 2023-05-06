@@ -17,11 +17,11 @@
     background-color: #ffffff !important;
     border-radius: 0.31em;
     padding: 5px;
-    box-shadow: -1px 1px 5px 0 #bdbdbd;
+    box-shadow: -1px 1px 5px 0 #80836f85;
 }
 
 .cards:hover{
-    box-shadow: -1px 1px 5px 0 #5a5a5a;
+    box-shadow: -1px 1px 5px 0 #80836fdc;
 }
 
 .card-body{

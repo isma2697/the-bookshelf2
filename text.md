@@ -95,3 +95,13 @@
     
 
 
+
+    error arreglar error el menu flotante de la izquierda de la busqueda queda fijado , sin olvidar la fecha de l carosuel.
+
+    error arreglar lo de la imagenes de los usuarios en el icono 
+    
+    botn de books chage and btn de editd de books
+
+    el next de la pagina datable
+
+

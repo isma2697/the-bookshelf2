@@ -1,8 +1,9 @@
 .menu2{
     position: absolute;
     top: 8.5em;
-    background-color: white;
-    border: 1px solid #a3a3a3;
+    background-color: #e6ecdd;
+    border-radius: 0.2em;
+    box-shadow: -1px 1px 5px 0px #6464649c;
     min-width: 5em;
 }
 
@@ -17,8 +18,6 @@
 }
 
 .dropdown-submenu>div>li{
-    /* border: 1px solid #000000; */
-    /* box-shadow: 0px 0px 1px 0.5px rgba(151, 151, 151, 0.75); */
     padding: 6px;
 }
 .dropdown-submenu>div>li>a{
@@ -28,5 +27,5 @@
 }
 
 .dropdown-submenu>div>li:hover{
-    background-color: #dfdfdfa6;
+    background-color: #175e052c;
 }

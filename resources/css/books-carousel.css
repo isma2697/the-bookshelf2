@@ -13,7 +13,7 @@
 
 .cards{
     min-width:13.5em;
-    background-color: #ffffff;
+    background-color: #ffffff9f;
     border-radius: 0.31em;
     padding: 5px;
     box-shadow: -1px 1px 5px 0 #bdbdbd;
@@ -26,7 +26,7 @@
 .card-body{
     max-width:12.5em;
     margin: 0.2em auto auto auto;
-    border:1px solid #ffffff;
+    border:1px solid #ffffff9f;
 }
 
 .card-body>h5{

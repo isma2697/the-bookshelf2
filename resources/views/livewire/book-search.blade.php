@@ -12,7 +12,7 @@
             @if($search)
             @foreach($books->take(5) as $book)
             <a href="{{ route('book.show', $book->id) }}">
-                <div class="bg-white overflow-hidden shadow p-3 flex items-center space-x-1">
+                <div style="background-color: #f3f5ef; " class=" overflow-hidden shadow-lg  p-3 flex items-center space-x-1">
                     @if($book->thumbnail)
                     <div class="w-1/4">
                         <img src="{{ $book->thumbnail }}" class="h-20 object-cover border" alt="{{ $book->title }}">

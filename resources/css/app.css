@@ -27,18 +27,18 @@
 body{
     /* background-color: rgb(161, 252, 252); */
     height: 100vh;
-    background-color: #ffffff27;
+    background-color: #dadace91;
     overflow-x: hidden;
 }
 
 body::-webkit-scrollbar{
     width: 0.5rem; 
     height: 0.5rem;
-    background-color: snow;
+    background-color: #FEFAE0;
 }
 
 body::-webkit-scrollbar-thumb{
-    background-color: #303030;
+    background-color: #E63946;
     border-radius: 1rem;
 }
 

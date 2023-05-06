@@ -30,13 +30,15 @@
     height: 5em;
     background-color: #ffffff;
     /* border: 2px solid #0400ff7e; */
+    background-color:  #CCD5AE;
 }
 
 .navbar-options{
     padding: 0.45em 2em;
     /* margin-top: 1em; */
     background-color: #ffffff;
-    box-shadow: 0em 0em 0.3em 0em #7e7e7e;
+    background-color: #CCD5AE;
+    box-shadow: 0em 2px 0.4em 0.1em #80836f85;
     /* border: 2px solid #db19196c; */
 }
 
@@ -136,8 +138,8 @@
 /* ---------------------------------------------------------------------------------------------- */
 
 .box-log{
-    border:1px solid #000000;
-    min-width: 2em;
+    /* border:1px solid #000000; */
+    min-width: 1.5em;
 }
 
 .box-log>div{
@@ -153,4 +155,58 @@
 
     position: relative;
     top: -0.5em;
+}
+
+/* Media queries */
+@media screen and (max-width: 1000px) {
+    .icon-logo {
+        height: 2.4em;
+        width: 15em;
+    }
+
+    #form1 {
+        width: 28em;
+    }
+
+    .search {
+        width: 26em;
+    }
+
+    .btn-login {
+        height: 2.2em;
+        width: 8em;
+    }
+
+    .login-user {
+        font-size: 1.1em;
+    }
+
+    #icon-user {
+        height: 3.3em;
+        width: 3.3em;
+    }
+}
+
+@media screen and (max-width: 500px) {
+   
+    #form1 {
+        width: 22em;
+    }
+
+    .search {
+        width: 20em;
+    }
+
+    .login-user {
+        font-size: 1em;
+    }
+
+    #icon-user {
+        height: 2.7em;
+        width: 2.7em;
+    }
+
+    .navbar-options {
+        display: none;
+    }
 }

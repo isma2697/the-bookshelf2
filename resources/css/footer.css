@@ -1,6 +1,6 @@
 .footer{
-    background-color: rgb(119, 169, 255);
-    color: #fff;
+    background-color: #CCD5AE;
+    color:#775d41;
     margin-top: 2em;
     position: relative;
     left: 0;
@@ -31,10 +31,11 @@
     justify-content: space-around;
     align-items: center;
 }
-
-.hr{
+.hr {
+    border-color: #775d41;
     margin: 0em 15em;
 }
+
 
 .footer__copy{
     margin: 0em 15em;

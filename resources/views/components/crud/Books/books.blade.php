@@ -39,12 +39,12 @@
                     <td>{{ $book->page_count ?? 'Sin paginas' }}</td>
                     <td>{{ Str::limit($book->thumbnail,20) ?? 'Sin imagen' }}</td>
                     <td>{{ $book->identifier ?? 'Sin identificador' }}</td>
-                     <td><button class=" btn-destroy bg-white my-2 hover:bg-gray-100 text-gray-800 font-semibold  px-2  rounded shadow-lg">
+                    <td style="text-align: center; vertical-align: middle;"><button class=" btn-destroy my-2 text-gray-800 font-semibold  px-2  rounded shadow-lg">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                           </svg>
                     </button></td>
-                    <td><a href="{{url('/admin/books')}}/{{$book->id}}/edit">
+                    <td><a class="flex justify-center items-center " href="{{url('/admin/books')}}/{{$book->id}}/edit">
                         <img src="{{ asset('svg/edit.svg') }}" alt="edit" id="edit" style="height: 2.5em; width: 2.5em;">                    </a></td>
                 </tr>
             @endforeach

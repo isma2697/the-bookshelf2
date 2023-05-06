@@ -8,7 +8,7 @@
         Crear nuevo usuario
     </a>
 </div>
-<div class="table-crud">
+<div class="table-crud ">
     <table id="table" class="display compact">
         <thead>
             <tr>
@@ -33,12 +33,12 @@
                     <td>{{ $user->phone ?? 'Sin telefono' }}</td>
                     <td>{{ $user->is_admin ?? 'Sin permiso' }}</td>
                     <td>{{ $user->email ?? 'Sin email' }}</td>
-                    <td><button class="btn_borrar bg-white my-2 hover:bg-gray-100 text-gray-800 font-semibold  px-2  rounded shadow-lg">
+                    <td class="flex justify-center  "><button class=" btn_borrar my-2 text-gray-800 font-semibold  px-2  rounded shadow-lg">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                           </svg>
                     </button></td>
-                    <td><a href="{{url('/admin/users')}}/{{$user->id}}/edit">
+                    <td ><a class="flex justify-center" href="{{url('/admin/users')}}/{{$user->id}}/edit">
                         <img src="{{ asset('svg/edit.svg') }}" alt="edit" id="edit" style="height: 1.5em; width: 1.5em;">
                     </a></td>
                 </tr>

@@ -3,7 +3,7 @@
     <div class="navbar-option navbar">
         <div class="icon-logo">
             <a href="{{ route('books.principal')}}">
-                <img src="{{ asset('img/icon-logo.png') }}" alt="Imagen de perfil">
+                <img src="{{ asset('svg/unnamed.svg') }}" alt="Imagen de perfil">
             </a>
         </div>
         <x-mycomp.user-session/>
@@ -31,5 +31,4 @@
             <livewire:book-search>
         </div>
     </div>
-
 </div>
