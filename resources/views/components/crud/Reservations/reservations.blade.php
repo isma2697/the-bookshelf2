@@ -27,8 +27,8 @@
                     <td>{{ $reservation->books->title ?? 'Sin titulo' }}</td>
                     <td>{{ $reservation->fecha_reserva ?? 'Sin fecha de reserva' }}</td>
                     <td>{{ $reservation->fecha_vencimiento ?? 'Sin fecha de caducacion' }}</td>
-                    <td><a href="{{ route('reservations.confirm', $reservation->id) }}" class="btn btn-success btn-sm">
-                        <img src="{{ asset('svg/edit.svg') }}" alt="edit" id="edit" style="height: 2.5em; width: 2.5em;">
+                    <td class="flex justify-center"><a href="{{ route('reservations.confirm', $reservation->id) }}" class="btn btn-success btn-sm">
+                        <img src="{{ asset('svg/check.svg') }}" alt="edit" id="edit" style="height: 2.5em; width: 2.5em;">
                     </a></td>
                     
                     </td>

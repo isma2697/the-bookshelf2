@@ -94,24 +94,10 @@
     //falta las pruebas de test unitarias.
     
 
-
-
-    error arreglar error el menu flotante de la izquierda de la busqueda queda fijado , sin olvidar la fecha de l carosuel.
-
-    error arreglar lo de la imagenes de los usuarios en el icono 
     
+    cambiar fuentes de la pagina
 
-
-
-    tik  resesrvers crud svg
-
-    el next de la pagina datable
-    btn de iºedit
-
-    poner bt greeen  panel conntropl
-
-
-    poner recomendado en principal  
+    ajustes enn la vista de ajustes de perfil
 
 
 

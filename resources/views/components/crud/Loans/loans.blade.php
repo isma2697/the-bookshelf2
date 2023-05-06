@@ -29,8 +29,8 @@
                     <td>{{ $loan->loan_date ?? 'Sin fecha de reserva' }}</td>
                     <td>{{ $loan->return_date ?? 'Sin fecha de caducacion' }}</td>
                     <td>{{ $loan->due_date ?? 'Sin fecha de devuelto' }}</td>
-                    <td><a href="{{ route('loans.confirm', $loan->id) }}" class="btn btn-success btn-sm">
-                        <img src="{{ asset('svg/edit.svg') }}" alt="edit" id="edit" style="height: 2.5em; width: 2.5em;">
+                    <td class="flex justify-center"><a href="{{ route('loans.confirm', $loan->id) }}" class="btn btn-success btn-sm">
+                        <img src="{{ asset('svg/check.svg') }}" alt="edit" id="edit" style="height: 2.5em; width: 2.5em;">
                     </a></td>
                     </td>
                 </tr>

@@ -21,7 +21,7 @@
     padding: 2em;
     /* border: 2px solid green; */
     margin: 0em 12em;
-
+    min-height: 50vh;
     display: grid; 
     grid-template-columns: repeat(5, 1fr);
     gap: 2em 1em; 

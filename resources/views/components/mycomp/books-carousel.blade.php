@@ -1,6 +1,9 @@
+<div class="title-carosuel">
+    <h2>Recomendados</h2>
+</div>
 <div class="btn-carousel-arrows">
     <img src="{{asset('svg/left-arrow.svg')}}" alt="left-arrow" class="carousel-control prev">
-    <img src="{{asset('svg/left-arrow.svg')}}" alt="right-arrow" class="carousel-control next">
+    <img src="{{asset('svg/right-arrow.svg')}}" alt="right-arrow" class="carousel-control next">
 </div>
 <div class="carousel">
     @foreach($books as $book)
