@@ -1,6 +1,6 @@
 .footer{
     background-color: #CCD5AE;
-    color:#775d41;
+    color:#303030;
     margin-top: 2em;
     position: relative;
     left: 0;
@@ -32,7 +32,7 @@
     align-items: center;
 }
 .hr {
-    border-color: #775d41;
+    border-color: #303030;
     margin: 0em 15em;
 }
 

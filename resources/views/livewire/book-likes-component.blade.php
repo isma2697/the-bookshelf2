@@ -1,34 +1,34 @@
-<div class="container mx-auto mt-8" x-data="{ tab: '{{ $section ?? 'likes' }}' }" >
+<div class="container mx-auto mt-8 mb-32" x-data="{ tab: '{{ $section ?? 'likes' }}' }" >
     <ul class="flex border-b">
         <li class="-mb-px mr-1" :class="{ '-mb-px': tab === 'likes' }">
-            <button :class="{ 'border-b-0 bg-blue-50 border border-blue-700 ': tab === 'likes' }" class="bg-white inline-block border-l border-t border-r rounded-t py-2 px-4 text-blue-700 font-semibold" @click="tab = 'likes'">
+            <button :class="{ 'border-b-0 bg-green-50 border border-green-700 ': tab === 'likes' }" class="bg-white inline-block border-l border-t border-r rounded-t py-2 px-4 text-green-700 font-semibold" @click="tab = 'likes'">
                 Likes
             </button>
         </li>
         <li class="mr-1" :class="{ '-mb-px': tab === 'bookmarks' }">
-            <button :class="{ 'border-b-0 bg-blue-50 border border-blue-700 ': tab === 'bookmarks' }" class="bg-white inline-block border-l border-t border-r rounded-t py-2 px-4 py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold" @click="tab = 'bookmarks'">
+            <button :class="{ 'border-b-0 bg-green-50 border border-green-700 ': tab === 'bookmarks' }" class="bg-white inline-block border-l border-t border-r rounded-t py-2 px-4 py-2 px-4 text-green-500 hover:text-green-800 font-semibold" @click="tab = 'bookmarks'">
                 Marcadores
             </button>
         </li>
         <li class="mr-1" :class="{ '-mb-px': tab === 'reservations' }">
-            <button :class="{ 'border-b-0 bg-blue-50 border border-blue-700 ': tab === 'reservations' }" class="bg-white inline-block border-l border-t border-r rounded-t py-2 px-4 py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold" @click="tab = 'reservations'">
+            <button :class="{ 'border-b-0 bg-green-50 border border-green-700 ': tab === 'reservations' }" class="bg-white inline-block border-l border-t border-r rounded-t py-2 px-4 py-2 px-4 text-green-500 hover:text-green-800 font-semibold" @click="tab = 'reservations'">
                 Reservas
             </button>
         </li>
         <li class="mr-1" :class="{ '-mb-px': tab === 'loans' }">
-            <button :class="{ 'border-b-0 bg-blue-50 border border-blue-700 ': tab === 'loans' }" class="bg-white inline-block border-l border-t border-r rounded-t py-2 px-4 py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold" @click="tab = 'loans'">
+            <button :class="{ 'border-b-0 bg-green-50 border border-green-700 ': tab === 'loans' }" class="bg-white inline-block border-l border-t border-r rounded-t py-2 px-4 py-2 px-4 text-green-500 hover:text-green-800 font-semibold" @click="tab = 'loans'">
                 Préstamos
             </button>
         </li>
     </ul>
-    <div class="border-2 border-blue-700 bg-blue-50 rounded-md shadow-md content-books ">
+    <div style="background-color: #ccd5aea4;" class="border-2 border-green-900 rounded-md shadow-md content-books ">
         <!-- Likes -->
         <div x-show="tab === 'likes'" class="transition p-4 duration-300">
             <div id="likes">
                 @if($likes->count())
                     <ul>
                         @foreach($likes as $like)
-                        <li class="mb-2">
+                        <li class="mb-2 shadow-lg">
                             <img src="{{ $like->books->thumbnail }}" alt="">
                             <div class="flex flex-col ">
                                 <a href="{{ route('book.show', $like->books->id) }}">

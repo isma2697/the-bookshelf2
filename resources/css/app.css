@@ -34,11 +34,11 @@ body{
 body::-webkit-scrollbar{
     width: 0.5rem; 
     height: 0.5rem;
-    background-color: #FEFAE0;
+    background-color: #b9b9b9;
 }
 
 body::-webkit-scrollbar-thumb{
-    background-color: #E63946;
+    background-color: #0a2502af;
     border-radius: 1rem;
 }
 

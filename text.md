@@ -103,5 +103,12 @@
     botn de books chage and btn de editd de books
 
     el next de la pagina datable
+    btn de iºedit
+
+    poner greeen  panel conntropl
+
+
+    poner recomendado en principal  
+
 
 
