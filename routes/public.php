@@ -5,9 +5,6 @@ use App\Http\Controllers\ApiBookController;
 use App\Http\Controllers\BooksController;
 use App\Http\Controllers\UsersController;
 
-
-  
-
 /*
 |--------------------------------------------------------------------------
 | Public Routes
@@ -22,10 +19,10 @@ Route::middleware([
     Route::get('/', [BooksController::class, 'principal'])->name('books.principal');
 });
 
-// Ruta para el home
+// home route
 Route::get('/', [BooksController::class, 'principal'])->name('books.principal');
 
-// Rutas mas comunes para usuarios no registrados
+// most common utes for unregistered users
 Route::get('/category/{category}', [ApiBookController::class, 'category'])->name('apibooks.category');
 Route::get('/books', [BooksController::class, 'index'])->name('books.index');
 Route::get('/books/popular', [BooksController::class, 'popular'])->name('books.popular');

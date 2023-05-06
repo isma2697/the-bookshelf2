@@ -13,12 +13,12 @@ class BooksSeeder extends Seeder
     public function manipulatePublishedDate($publishedDate)
     {
         if (strlen($publishedDate) == 4) {
-            // genera una fecha aleatoria en el formato yyyy-mm-dd
+            // generates a random date in the format yyyy-mm-dd
             $month = rand(1, 12);
             $day = rand(1, 28);
             $publishedDate = $publishedDate . '-' . str_pad($month, 2, '0', STR_PAD_LEFT) . '-' . str_pad($day, 2, '0', STR_PAD_LEFT);
         } elseif (strlen($publishedDate) == 7) {
-            // genera un día aleatorio en el formato yyyy-mm-dd
+            // generates a random day in the format yyyy-mm-dd
             $day = rand(1, 28);
             $publishedDate = $publishedDate . '-' . str_pad($day, 2, '0', STR_PAD_LEFT);
         }
@@ -32,11 +32,8 @@ class BooksSeeder extends Seeder
             // busca un registro existente por título
             $existingBook = Books::where('title', $bookData['title'])->first();
 
-            
-            
-            
             if (!$existingBook && !is_null($bookData['title']) && !is_null($bookData['subtitle']) && !is_null($bookData['publishedDate']) && !is_null($bookData['pageCount']) && !is_null($bookData['description']) && !is_null($bookData['authors']) && !is_null($bookData['categories']) && !is_null($bookData['imageLinks']) && !is_null($bookData['identifier'])) {
-                // manipula la fecha
+                // manipulate the date
                 $publishedDate = $this->manipulatePublishedDate($bookData['publishedDate']);
                 // crea un nuevo registro
                 Books::create([
@@ -53,8 +50,8 @@ class BooksSeeder extends Seeder
             }
         }
     }
-
-
+    
+    // this function creates books by category
     public function createBooksByCategory($category)
     {
         $apiBookController = new ApiBookController();
@@ -62,19 +59,16 @@ class BooksSeeder extends Seeder
         $this->dataCreate($booksCategoryData);
     }
 
-    
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        //
         $apiBookController = new ApiBookController();
         $booksData = $apiBookController->index();
         $this->dataCreate($booksData);
         
-
-        // Define la lista de categorías
+        // Defines the list of categories
         $categories = [
             'Art',
             'Biographies & Autobiographies',
@@ -112,7 +106,7 @@ class BooksSeeder extends Seeder
             'Study Aids',
             'Travel'
         ];
-        // Crea los libros para cada categoría
+        // Create the books for each category
         foreach ($categories as $category) {
             $this->createBooksByCategory($category);
         }
