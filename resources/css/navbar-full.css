@@ -29,14 +29,12 @@
     padding: 1em;
     height: 5em;
     background-color: #ffffff;
-    /* border: 2px solid #0400ff7e; */
     background-color:  #CCD5AE;
 }
 
 .navbar-options{
     padding: 0.45em 2em;
     /* margin-top: 1em; */
-    background-color: #ffffff;
     background-color: #CCD5AE;
     box-shadow: 0em 2px 0.4em 0.1em #80836f85;
     /* border: 2px solid #db19196c; */
@@ -44,10 +42,10 @@
 
 
 
-.options > p{
+.options>.dropdown-menu>li > p{
     color:#000000;
-    margin-top: 0.5em;
     font-size: 1em;
+    font-family: 'roboto', sans-serif;
 }
 
 
@@ -108,6 +106,12 @@
     position: relative;
     top: -0.2em;
 }
+
+#arrow-down1:hover, 
+#arrow-down2:hover{
+    cursor: pointer;
+}
+   
 
 .menu1 ,.menu2 {
 

@@ -38,17 +38,24 @@
       </div>
       <div class="mb-4">
         <label for="categories" class="block text-gray-700 font-bold mb-2">Categorias</label>
-        <select name="categories[]" id="categories" class="form-select rounded-md shadow-sm w-full" multiple>
-          @php
-          $selectedCategories = explode(',', $book->categories);
-          @endphp
-          @foreach($categories as $category)
-          <option value="{{ $category }}" {{ in_array($category, $selectedCategories) ? 'selected' : '' }}>
-            {{ $category }}
-          </option>
-          @endforeach
-        </select>
-      </div>
+        <div class="relative">
+            <select name="categories[]" id="categories" class="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md" multiple>
+                @php
+                $selectedCategories = explode(',', $book->categories);
+                @endphp
+                @foreach($categories as $category)
+                <option value="{{ $category }}" {{ in_array($category, $selectedCategories) ? 'selected' : '' }}>
+                    {{ $category }}
+                </option>
+                @endforeach
+            </select>
+            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </div>
+        </div>
+    </div>
       <div class="mb-4">
         <label for="published_date" class="block text-gray-700 font-bold mb-2">Fecha de publicacion</label>
         <input type="date" name="published_date" id="published_date" value="{{$book->published_date}}" class="form-input rounded-md shadow-sm w-full">
@@ -78,13 +85,14 @@
         @enderror
       </div>
       <div class="flex items-center justify-between mt-8">
-        <button type="submit" class="py-2 px-4 bg-blue-600 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 text-white w-full transition ease-in duration-200 text-center font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg">
-          Editar libro
-        </button>
-        <a href="{{route('admin.books.index')}}" class="py-2 px-4 bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg">
+        <a href="{{route('admin.books.index')}}" class="py-2 px-4 bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white  transition ease-in duration-200 text-center font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg w-56">
           Cancelar
         </a>
+        <button type="submit" class="py-2 px-4 bg-blue-600 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 text-white  transition ease-in duration-200 text-center font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg w-56">
+          Editar libro
+        </button>
       </div>
     </form>
   </div>
+</div>
     

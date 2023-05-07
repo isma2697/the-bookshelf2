@@ -10,12 +10,7 @@
                     </a>
                 </div>
 
-                <!-- Navigation Links -->
-                {{-- <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link href="{{ route('books.principal') }}" :active="request()->routeIs('books.principal')">
-                        23234
-                    </x-nav-link>
-                </div> --}}
+              
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -93,12 +88,23 @@
                         <x-slot name="content">
                             <!-- Account Management -->
                             <div class="block px-4 py-2 text-xs text-gray-400">
-                                {{ __('Manage Account') }}
+                                {{ __('Administrar cuenta') }}
                             </div>
 
                             <x-dropdown-link href="{{ route('profile.show') }}">
-                                {{ __('Profile') }}
+                                {{ __('Perfil') }}
                             </x-dropdown-link>
+
+                            <a href="{{ route('profile.likes',['section' => 'likes']) }}" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
+                                Mis libros
+                            </a>
+        
+                            <a href="{{ route('profile.likes', ['section' => 'likes']) }}" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
+                                Likes
+                            </a>
+                            <a href="{{ route('profile.likes', ['section' => 'bookmarks']) }}" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
+                                Guardados
+                            </a>
 
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                                 <x-dropdown-link href="{{ route('api-tokens.index') }}">
@@ -108,13 +114,19 @@
 
                             <div class="border-t border-gray-200"></div>
 
+                            @if (auth()->check() && auth()->user()->is_admin == 1)
+                                <a href="{{route("admin.panel-control")}}" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
+                                    Panel de control - Admin
+                                </a>
+                            @endif
+
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}" x-data>
                                 @csrf
 
                                 <x-dropdown-link href="{{ route('logout') }}"
                                          @click.prevent="$root.submit();">
-                                    {{ __('Log Out') }}
+                                    {{ __('Cerrar sesion') }}
                                 </x-dropdown-link>
                             </form>
                         </x-slot>

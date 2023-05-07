@@ -1,5 +1,5 @@
 <div class="title-carosuel">
-    <h2>Recomendados</h2>
+    <h2>RECOMENDADOS</h2>
 </div>
 <div class="btn-carousel-arrows">
     <img src="{{asset('svg/left-arrow.svg')}}" alt="left-arrow" class="carousel-control prev">
@@ -12,7 +12,7 @@
                 <img class="card-img " src="{{ $book->thumbnail}}" alt="{{ $book->title }}">
             </a>
             <div class="card-body">
-                <h5 class="card-title">{{ Str::limit($book->title,21) }}</h5>
+                <h5 class="card-title">{{ Str::limit($book->title,25) }}</h5>
             </div>
         </div>
     @endforeach

@@ -95,9 +95,9 @@
     
 
     
-    cambiar fuentes de la pagina
 
-    ajustes enn la vista de ajustes de perfil
+
+
 
 
 

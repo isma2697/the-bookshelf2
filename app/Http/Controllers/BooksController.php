@@ -42,8 +42,8 @@ class BooksController extends Controller
      */
     public function index()
     {
-        //mostrar vista de librosde la base de datos
-        $books = Books::all();
+        //mostrar vista de librosde la base de datos solo 100
+        $books = Books::paginate(100);
     
         $books = $this->formatData($books);
         // dd($books);
@@ -171,7 +171,6 @@ class BooksController extends Controller
             'subtitle'       => 'required|string|max:255',
             'authors'        => 'required|string|max:255',
             'description'    => 'required|string|max:1000',
-            'categories'     => 'required',
             'published_date' => 'required|date',
             'page_count'     => 'required|string|numeric',
             'thumbnail'      => 'required|string|max:255',
@@ -186,6 +185,7 @@ class BooksController extends Controller
 
         // Obtiene todos los datos de la solicitud
         $datos = $request->all();
+        // dd($datos);
         // Elimina el token para evitar errores
         unset($datos['_token']);
 

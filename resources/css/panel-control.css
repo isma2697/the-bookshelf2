@@ -23,13 +23,15 @@
     font-weight: 600;
     color: #303030;
     margin-bottom: 1em;
+    font-family: 'Open Sans', sans-serif;
 }
 .control>p{
     font-size: 1em;
     font-weight: 400;
+    font-family: 'roboto', sans-serif;
     color: #747474;
-    margin-left: 2.5em;
-    margin-right: 2.5em;
+    margin-left:3.5em;
+    margin-right: 3em;
     margin-bottom: 2.5em;
 }
 

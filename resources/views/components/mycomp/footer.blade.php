@@ -41,7 +41,7 @@
             <p class="info-space">|</p>
             <p><a href="tel:+34638388370">+34638388371</a></p>
             <p class="info-space">|</p>
-            <p><a href="mailto:info@thebookshlf.es">info@thebookshlf.es</a></p>
+            <p><a href="mailto:info@thebookshlf.es">info@thebookshelf.es</a></p>
         </div>
     </div>
 </div>

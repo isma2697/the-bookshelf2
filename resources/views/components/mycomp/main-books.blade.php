@@ -1,6 +1,6 @@
 <div class="container-books">
     <div class="title-container">
-        <h1>{{$title ?? 'Libros disponible'}}</h1>
+        <h1>{{$title ?? 'Libros disponibles'}}</h1>
     </div>
     <div class="books-container ">
         @foreach ($books as $book)

@@ -1,7 +1,8 @@
 .title-carosuel>h2{
     margin: 0em 8em;
-    font-size: 2em;
+    font-size: 1.9em;
     font-weight: 600;
+    font-family: 'roboto', sans-serif;
 }
 
 .carousel{
@@ -38,7 +39,7 @@
     font-size: 0.9em;
     color: #000000;
     font-weight: 600;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'roboto', sans-serif;
 }
 .card-title{
     max-width: 14em;

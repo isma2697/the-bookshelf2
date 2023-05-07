@@ -17,16 +17,17 @@
 @import url('footer.css');
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:ital,wght@1,300;1,400&display=swap');
 
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto' , sans-serif;
 }
 body{
     /* background-color: rgb(161, 252, 252); */
-    height: 100vh;
+    min-height: 100vh;
     background-color: #dadace91;
     overflow-x: hidden;
 }
