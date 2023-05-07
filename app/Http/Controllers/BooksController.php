@@ -43,7 +43,7 @@ class BooksController extends Controller
     public function index()
     {
         //mostrar vista de librosde la base de datos solo 100
-        $books = Books::paginate(100);
+        $books = Books::all();
     
         $books = $this->formatData($books);
         // dd($books);
