@@ -56,7 +56,35 @@ TheBookshelf is a web platform that connects readers with real libraries, making
 
 1. Clone the repository on your local machine:
 
->> git clone https://github.com/your-username/thebookshelf.git
+> git clone https://github.com/your-username/thebookshelf.git
+
+
+2. Enter the project directory and install the dependencies with Composer:
+
+```cd thebookshelf```
+``` composer install```
+
+
+3. Copy the `.env.example` file to `.env` and configure the necessary environment variables:
+
+```cp .env.example .env```
+
+
+4. Generate the application key:
+
+```php artisan key:generate```
+
+
+5. Configure your database and add the credentials in the `.env` file.
+
+6. Run migrations and seeders to populate the database:
+
+```php artisan migrate --seed   ```
+
+
+7. Start the local development server:
+
+```php artisan serve```
 
 
 
