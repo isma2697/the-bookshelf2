@@ -1,3 +1,3 @@
 <a href="/">
-  <img src="{{ asset('svg/auten-logo.svg') }}" alt="Logo">
+  <img src="{{ asset('svg/unnamed.svg') }}" alt="Logo">
 </a>
