@@ -64,6 +64,7 @@ class BooksController extends Controller
 
         return view('my-views.most-popular', compact('books'));
 
+
     }
 
     //function to display the most recent books
