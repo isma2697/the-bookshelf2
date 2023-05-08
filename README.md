@@ -15,6 +15,8 @@ TheBookshelf is a web platform that connects readers with real libraries, making
 
 - [Main Features](#main-features)
 - [Technologies Used](#technologies-used)
+- [Video youtube](#Video-youtube)
+- [Redirect to thebookshelf](#Redirect-to-thebookshelf)
 - [Installation and Configuration](#installation-and-configuration)
 - [Usage](#usage)
 - [Contributing to the Project](#contributing-to-the-project)
@@ -23,7 +25,6 @@ TheBookshelf is a web platform that connects readers with real libraries, making
 ## Main Features
 
 - Check the availability of books in real libraries.
-- See if a book is reserved by someone else.
 - Create an account and become a member without visiting the library.
 - Interact with a community of readers.
 
@@ -31,15 +32,31 @@ TheBookshelf is a web platform that connects readers with real libraries, making
 
 - Laravel
 - MySQL
+- POSGRESQL
+- HEROKU
 - CSS
 - Tailwind
 - Alpine.js
 - Livewire
 - Google API (for book search and retrieval)
 
+## VIDEO YOUTUBE
+
+- [THE BOOKSHELF - PROYECTO FINAL DAW - CIFP ZONZAMAS](https://youtu.be/gBwAMVfB9ko).
+
+## REDIRECT TO THEBOOKSHELF
+
+- [THE BOOKSHELF](http://pacific-mesa-14831.herokuapp.com/).
+
+
+
+
+
 ## Installation and Configuration
 
 1. Clone the repository on your local machine:
+
+>> git clone https://github.com/your-username/thebookshelf.git
 
 
 
