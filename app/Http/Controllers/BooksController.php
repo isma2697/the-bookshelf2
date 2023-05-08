@@ -55,16 +55,12 @@ class BooksController extends Controller
     {
        //This query only worked in mysql and it already applies the aggregation of the likes table
        $books = Books::leftJoin('likes', 'books.id', '=', 'likes.books_id')
-            ->select('books.*', DB::raw('COUNT(likes.id) as likes_count'))
-            ->groupBy('books.id', 'books.title', 'books.subtitle', 'books.published_date', 'books.page_count', 'books.description', 'books.authors', 'books.categories', 'books.thumbnail', 'books.identifier', 'books.created_at', 'books.updated_at', 'likes.id')
-            ->orderBy('likes_count', 'DESC')
-            ->paginate(45);
-
+                   ->select('books.*', DB::raw('COUNT(likes.id) as likes_count'))
+                   ->groupBy('books.id', 'books.title', 'books.subtitle', 'books.published_date', 'books.page_count', 'books.description', 'books.authors', 'books.categories', 'books.thumbnail', 'books.identifier', 'books.created_at', 'books.updated_at') // agregar books.updated_at a la cláusula GROUP BY
+                   ->orderBy('likes_count', 'DESC')
+                   ->paginate(45);
         $books = $this->formatData($books);
-
         return view('my-views.most-popular', compact('books'));
-
-
     }
 
     //function to display the most recent books
