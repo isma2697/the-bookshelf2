@@ -22,14 +22,6 @@ TheBookshelf is a web platform that connects readers with real libraries, making
 - [Installation and Configuration](#installation-and-configuration)
 - [Unit Tests](#unit-tests)
 
-## Video Youtube
-
-- [THE BOOKSHELF - PROYECTO FINAL DAW - CIFP ZONZAMAS](https://youtu.be/gBwAMVfB9ko).
-
-## Redirect to THEBOOKSHELF page
-
-- [THE BOOKSHELF](http://pacific-mesa-14831.herokuapp.com/) .
-
 
 ## Main Features
 
@@ -113,6 +105,14 @@ The unit tests I have are:
 - /BookControllerTest.php
 - /BooksSeederTest.php
 
+
+## Video Youtube
+
+- [THE BOOKSHELF - PROYECTO FINAL DAW - CIFP ZONZAMAS](https://youtu.be/gBwAMVfB9ko).
+
+## Redirect to THEBOOKSHELF page
+
+- [THE BOOKSHELF](http://pacific-mesa-14831.herokuapp.com/) .
 
 
 
