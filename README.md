@@ -16,11 +16,20 @@ TheBookshelf is a web platform that connects readers with real libraries, making
 - [Main Features](#main-features)
 - [Technologies Used](#technologies-used)
 - [Video youtube](#Video-youtube)
-- [Redirect to thebookshelf](#Redirect-to-thebookshelf)
+- [Redirect to thebookshelf](#Redirect-to-thebookshelf-page)
+- [Case Diagram](#Case-Diagram)
+- [Diagram Phase](#Diagram-Phase)
 - [Installation and Configuration](#installation-and-configuration)
-- [Usage](#usage)
-- [Contributing to the Project](#contributing-to-the-project)
-- [License](#license)
+- [Unit Tests](#unit-tests)
+
+## Video Youtube
+
+- [THE BOOKSHELF - PROYECTO FINAL DAW - CIFP ZONZAMAS](https://youtu.be/gBwAMVfB9ko).
+
+## Redirect to THEBOOKSHELF page
+
+- [THE BOOKSHELF](http://pacific-mesa-14831.herokuapp.com/) .
+
 
 ## Main Features
 
@@ -40,29 +49,32 @@ TheBookshelf is a web platform that connects readers with real libraries, making
 - Livewire
 - Google API (for book search and retrieval)
 
-## VIDEO YOUTUBE
+## Case Diagram
 
-- [THE BOOKSHELF - PROYECTO FINAL DAW - CIFP ZONZAMAS](https://youtu.be/gBwAMVfB9ko).
+- [THE BOOKSHELF - PRE-DESIGN ](https://www.figma.com/file/lkbYx5ObMaOSsgWJWpdyfK/diagrama-casos-de-uso?type=design&t=7lJOjzn9gMYqqKHa-1).
 
-## REDIRECT TO THEBOOKSHELF
+## Diagram Phase
 
-- [THE BOOKSHELF](http://pacific-mesa-14831.herokuapp.com/).
+- [THE BOOKSHELF - DIAGRAM PHASE ](https://www.figma.com/file/c8pFXBp9Y5ZaBIwy4qXmuy/preview-thebookshelf?type=design&t=7lJOjzn9gMYqqKHa-1).
 
+- [THE BOOKSHELF - CLASS DIAGRAM ](https://drive.google.com/file/d/1QGv0ilAQgQ2f1Bk5lT-B2kkL-Q2bbrWw/view?usp=sharing).
 
+- [THE BOOKSHELF - RELATIONAL ENTITY DIAGRAM ](https://drive.google.com/file/d/1CN_DanqRaOD8LW499V-4jWTay93bo_lt/view?usp=sharing).
 
+- [THE BOOKSHELF - DB STRUCTURE ]().
 
 
 ## Installation and Configuration
 
 1. Clone the repository on your local machine:
 
-> git clone https://github.com/your-username/thebookshelf.git
+> git clone https://github.com/isma2697/the-bookshelf2.git
 
 
 2. Enter the project directory and install the dependencies with Composer:
 
 ```cd thebookshelf```
-``` composer install```
+```composer install```
 
 
 3. Copy the `.env.example` file to `.env` and configure the necessary environment variables:
@@ -79,7 +91,7 @@ TheBookshelf is a web platform that connects readers with real libraries, making
 
 6. Run migrations and seeders to populate the database:
 
-```php artisan migrate --seed   ```
+```php artisan migrate --seed```
 
 
 7. Start the local development server:
@@ -89,6 +101,17 @@ TheBookshelf is a web platform that connects readers with real libraries, making
 
 
 
+## Unit Tests
+
+To run the unit tests, run the following command:
+
+```php artisan test```
+
+The unit tests I have are:
+
+- /ApiBookControllerTest.php
+- /BookControllerTest.php
+- /BooksSeederTest.php
 
 
 
@@ -101,60 +124,3 @@ TheBookshelf is a web platform that connects readers with real libraries, making
 
 
 
-## About Laravel
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
--   [Simple, fast routing engine](https://laravel.com/docs/routing).
--   [Powerful dependency injection container](https://laravel.com/docs/container).
--   Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
--   Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
--   Database agnostic [schema migrations](https://laravel.com/docs/migrations).
--   [Robust background job processing](https://laravel.com/docs/queues).
--   [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
--   **[Vehikl](https://vehikl.com/)**
--   **[Tighten Co.](https://tighten.co)**
--   **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
--   **[64 Robots](https://64robots.com)**
--   **[Cubet Techno Labs](https://cubettech.com)**
--   **[Cyber-Duck](https://cyber-duck.co.uk)**
--   **[Many](https://www.many.co.uk)**
--   **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
--   **[DevSquad](https://devsquad.com)**
--   **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
--   **[OP.GG](https://op.gg)**
--   **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
--   **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
