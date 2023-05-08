@@ -18,8 +18,8 @@ return new class extends Migration
             $table->date('published_date')->nullable();
             $table->integer('page_count')->nullable();
             $table->text('description')->nullable();
-            $table->json('authors')->nullable();
-            $table->json('categories')->nullable();
+            $table->text('authors')->nullable();
+            $table->text('categories')->nullable();
             $table->string('thumbnail')->nullable();
             $table->string('identifier')->nullable();
             $table->timestamps();
