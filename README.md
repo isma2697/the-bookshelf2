@@ -53,7 +53,7 @@ TheBookshelf is a web platform that connects readers with real libraries, making
 
 - [THE BOOKSHELF - RELATIONAL ENTITY DIAGRAM ](https://drive.google.com/file/d/1CN_DanqRaOD8LW499V-4jWTay93bo_lt/view?usp=sharing).
 
-- [THE BOOKSHELF - DB STRUCTURE ]().
+- THE BOOKSHELF - DB STRUCTURE ,file ```database.sql``` in the folder database.
 
 
 ## Installation and Configuration
