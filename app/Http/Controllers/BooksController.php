@@ -249,9 +249,10 @@ class BooksController extends Controller
     {
         $year = (int) $year;
         $limit_year = $year + 20;
-        $books = Books::where(DB::raw('CAST(substr(published_date, 1, 4) AS INTEGER)'), '>=', $year)
-        ->where(DB::raw('CAST(substr(published_date, 1, 4) AS INTEGER)'), '<', $limit_year)
+        $books = Books::whereRaw('YEAR(published_date) >= ?', [$year])
+        ->whereRaw('YEAR(published_date) < ?', [$limit_year])
         ->paginate(30);
+
         $books = $this->formatData($books);
         return view('my-views.category', compact('books'));
     }
