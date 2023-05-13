@@ -36,7 +36,7 @@ TheBookshelf is a web platform that connects readers with real libraries, making
 - Google API (for book search and retrieval)
 
 ## Case Diagram
-
+ 
 - [THE BOOKSHELF - PRE-DESIGN ](https://www.figma.com/file/lkbYx5ObMaOSsgWJWpdyfK/diagrama-casos-de-uso?type=design&t=7lJOjzn9gMYqqKHa-1).
 
 ## Diagram Phase
