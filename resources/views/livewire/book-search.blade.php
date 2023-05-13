@@ -8,7 +8,7 @@
                 </svg>
             </div>
         </div>
-        <div class="absolute top-28 w-3/12 result-search" x-show="isOpen">
+        <div class="search-book absolute  w-full top-28 result-search" x-show="isOpen">
             @if($search)
             @foreach($books->take(5) as $book)
             <a href="{{ route('book.show', $book->id) }}">

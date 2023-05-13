@@ -110,10 +110,6 @@
         gap: 1em;
     }
     
-    .next{
-        rotate: 180deg;
-    }
-    
     .carousel-control{
         height: 2em;
         width: 2em;
@@ -162,10 +158,6 @@
         flex-direction: row;
         justify-content: flex-end;
         gap: 1em;
-    }
-    
-    .next{
-        rotate: 180deg;
     }
     
     .carousel-control{

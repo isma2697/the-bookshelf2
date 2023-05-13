@@ -28,7 +28,6 @@ TheBookshelf is a web platform that connects readers with real libraries, making
 
 - Laravel
 - MySQL
-- POSGRESQL
 - HEROKU
 - CSS
 - Tailwind

@@ -1,0 +1,9 @@
+.search-book{
+    width: 30em;
+}
+
+@media (max-width: 1000px){
+    .search-book{
+        width: 20em;
+    }
+}

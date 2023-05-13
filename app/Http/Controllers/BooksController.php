@@ -241,7 +241,8 @@ class BooksController extends Controller
     public function show_category($category){
         $books = Books::where('categories', 'LIKE', '%'.$category.'%')->paginate(30);
         $books = $this->formatData($books);
-        return view('my-views.category', compact('books'));
+        $title = "libros de la categoría";
+        return view('my-views.category', compact('books', 'title'));
     }
 
     //function shows a view of the books of a year, depending on what the user has chosen
@@ -254,7 +255,8 @@ class BooksController extends Controller
         ->paginate(30);
 
         $books = $this->formatData($books);
-        return view('my-views.category', compact('books'));
+        $title = "libros del año";
+        return view('my-views.category', compact('books', 'title'));
     }
 }
 

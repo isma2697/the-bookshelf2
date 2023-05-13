@@ -6,22 +6,22 @@
         <div class="footer-social">
             <ul>
                 <li>
-                    <a href=""><img class=" w-10 h-10" src="{{asset('svg/instagram.svg')}}" alt="instagram"></a>
+                    <a href="https://www.instagram.com/"><img class=" w-10 h-10" src="{{asset('svg/instagram.svg')}}" alt="instagram"></a>
                 </li>
                 <li>
-                    <a href=""><img class=" w-10 h-10" src="{{asset('svg/twitter-logo.svg')}}" alt="twitter-logo"></a>
+                    <a href="https://twitter.com/?lang=es"><img class=" w-10 h-10" src="{{asset('svg/twitter-logo.svg')}}" alt="twitter-logo"></a>
                 </li>
                 <li>
-                    <a href=""><img class=" w-10 h-10" src="{{asset('svg/github-logo.svg')}}" alt="github-logo"></a>
+                    <a href="https://github.com/"><img class=" w-10 h-10" src="{{asset('svg/github-logo.svg')}}" alt="github-logo"></a>
                 </li>
                 <li>
-                    <a href=""><img class=" w-10 h-10" src="{{asset('svg/whatsapp-logo.svg')}}" alt="whatsapp-logo"></a>
+                    <a href="https://www.whatsapp.com/?lang=es"><img class=" w-10 h-10" src="{{asset('svg/whatsapp-logo.svg')}}" alt="whatsapp-logo"></a>
                 </li>
                 <li>
-                    <a href=""><img class=" w-10 h-10" src="{{asset('svg/linked.svg')}}" alt="linked"></a>
+                    <a href="https://es.linkedin.com/"><img class=" w-10 h-10" src="{{asset('svg/linked.svg')}}" alt="linked"></a>
                 </li>
                 <li>
-                    <a href=""><img class=" w-10 h-10" src="{{asset('svg/facebook-logo.svg')}}" alt="facebook-logo"></a>
+                    <a href="https://es-es.facebook.com/"><img class=" w-10 h-10" src="{{asset('svg/facebook-logo.svg')}}" alt="facebook-logo"></a>
                 </li>
             </ul>
         </div>
@@ -30,14 +30,14 @@
     <br>
     <div class="footer__copy ">
         <div class="first">
-            <p>&copy; 2023 - All Rights Reserved</p>
+            <p>&copy; 2023 - Reservados todos los derechos</p>
             <p class="info-space">|</p>
-            <p>Terms of Service</p>
+            <p>Términos de servicio</p>
             <p class="info-space">|</p>
-            <p>Privacy Policy</p>
+            <p>política de privacidad</p>
         </div>
         <div class="second">
-            <p>Terms of Service</p>
+            <p>Contáctenos</p>
             <p class="info-space">|</p>
             <p><a href="tel:+34638388370">+34638388371</a></p>
             <p class="info-space">|</p>
