@@ -108,7 +108,6 @@ The unit tests I have are:
 
 - [THE BOOKSHELF](http://pacific-mesa-14831.herokuapp.com/) .
 
-## lincense 
  
 
 
